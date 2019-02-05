@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:delta"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Добавление новых шрифтов -->
+    <FontFamily x:Key="LatoRegular">pack://application;,,,/Fonts/Lato/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LatoThin">pack://application;,,,/Fonts/Lato/#Lato Thin</FontFamily>
+    <FontFamily x:Key="LatoBold">pack://application;,,,/Fonts/Lato/#Lato Bold</FontFamily>
+    
+    <!-- Добавление иконок -->
+    <FontFamily x:Key="FontAwesome">pack://application;,,,/Fonts/Icons/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+    <FontFamily x:Key="MaterialDesign">pack://application;,,,/Fonts/Icons/materialdesignicons-webfont.ttf#Material Design Icons</FontFamily>
+
+    <!-- Set base style -->
+    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}"/>
+
+    <!-- Material Design Icons -->
+    <system:String x:Key="MaterialDesignDeltaIcon">&#xf1c2;</system:String>
+    <system:String x:Key="MaterialDesignEyeIcon">&#xf6cf;</system:String>
+    <system:String x:Key="MaterialDesignUserIcon">&#xf004;</system:String>
+    <system:String x:Key="MaterialDesignMinimizeIcon">&#xf5b0;</system:String>
+    <system:String x:Key="MaterialDesignCloseIcon">&#xf156;</system:String>
+
+    <!-- Font Awesome Icons -->
+    <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>
+    <system:String x:Key="FontAwesomeCogIcon">&#xf013;</system:String>
+
+</ResourceDictionary>
