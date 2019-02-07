@@ -23,6 +23,11 @@ namespace delta
         /// </summary>
         private int mCornerRadius = 0;
 
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
+
         #endregion
 
         #region Public Properties
@@ -48,6 +53,11 @@ namespace delta
         public double WindowMaximumHeight { get; set; } = 840;
 
         /// <summary>
+        /// True if the window should be borderless because it is docked or maximized
+        /// </summary>
+        public bool Borderless => mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked;
+
+        /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
         /// </summary>
         public int ResizeBorder { get; set; } = 5;
@@ -62,7 +72,7 @@ namespace delta
         /// </summary>
         public int OuterMarginSize
         {
-            get => mWindow.WindowState == WindowState.Maximized ? 0 : mOuterMarginSize;
+            get => Borderless ? 0 : mOuterMarginSize;
 
             set => mOuterMarginSize = value;
         }
@@ -77,7 +87,7 @@ namespace delta
         /// </summary>
         public int WindowRadius
         {
-            get => mWindow.WindowState == WindowState.Maximized ? 0 : mCornerRadius;
+            get => Borderless ? 0 : mCornerRadius;
 
             set => mCornerRadius = value;
         }
@@ -97,6 +107,10 @@ namespace delta
         /// </summary>
         public GridLength TitleHeightGridLength => new GridLength(TitleHeight);
 
+        /// <summary>
+        /// The padding of the inner content of the main window
+        /// </summary>
+        public Thickness InnerContentPadding => new Thickness(5);
 
         #endregion
 
@@ -133,11 +147,21 @@ namespace delta
             //Listen out for the window resizing
             mWindow.StateChanged += (sender, e) =>
             {
-                OnPropertyChanged(nameof(ResizeBorderThickness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThickness));
-                OnPropertyChanged(nameof(WindowRadius));
-                OnPropertyChanged(nameof(WindowCornerRadius));
+                //Fires off events for all properties that are affected by a resize :)
+                WindowResized();
+            };
+
+            // Fix window resize issue
+            var resizer = new WindowResizer(mWindow);
+            
+            // Listen out for dock changes
+            resizer.WindowDockChanged += (dock) =>
+            {
+                // Store last position
+                mDockPosition = dock;
+
+                // Fire off resize events
+                WindowResized();
             };
 
             //Create commands
@@ -146,6 +170,24 @@ namespace delta
             CloseCommand = new RelayCommand(() => mWindow.Close());
             SystemMenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
 
+        }
+
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// If the window resizes to a special position (docked or maximized)
+        /// this will update all required property change events to set the borders and radius values
+        /// </summary>
+        private void WindowResized()
+        {
+            OnPropertyChanged(nameof(ResizeBorderThickness));
+            OnPropertyChanged(nameof(OuterMarginSize));
+            OnPropertyChanged(nameof(OuterMarginSizeThickness));
+            OnPropertyChanged(nameof(WindowRadius));
+            OnPropertyChanged(nameof(WindowCornerRadius));
         }
 
         /// <summary>
@@ -158,6 +200,7 @@ namespace delta
 
             return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
         }
+
 
         #endregion
     }

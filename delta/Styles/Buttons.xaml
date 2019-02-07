@@ -40,7 +40,15 @@
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
         <Setter Property="Padding" Value="7"/>
         <Setter Property="Foreground" Value="{StaticResource ForegroundDarkBrush}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Margin" Value="0 5"/>
 
+        <!--<Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1.2"/>
+            </Setter.Value>
+        </Setter>-->
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -48,13 +56,33 @@
                             Padding="{TemplateBinding Padding}">
 
                         <ContentPresenter VerticalAlignment="Center" 
-                                          HorizontalAlignment="Center"/>
+                                   HorizontalAlignment="Center"/>
+
+
 
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
 
+        <!-- Change background color when mouse over -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource BackgroundLightBrush}" />
+            </Trigger>
+        </Style.Triggers>
+
     </Style>
-    
+
+    <!-- Window control button-->
+    <Style TargetType="{x:Type Button}" x:Key="WindowControlCloseButton" BasedOn="{StaticResource WindowControlButton}">
+        <!-- Change background color when mouse over -->
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Red"/>
+                <Setter Property="Foreground" Value="{StaticResource ForegroundLightBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

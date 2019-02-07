@@ -87,33 +87,38 @@
 
                                         </StackPanel>
                                         
-                                        <!-- System control buttons -->
-                                        <StackPanel Orientation="Horizontal" Grid.Column="2">
+                                        <!-- Window Control Buttons -->
+                                        <StackPanel Orientation="Horizontal" 
+                                                    Grid.Column="2"
+                                                    Margin="0 0 8 0">
 
-                                            <Button Style="{StaticResource WindowControlButton}">
-                                                <TextBlock FontFamily="{StaticResource FontAwesome}"
-                                                           Text="{StaticResource FontAwesomeCogIcon}"
-                                                           FontSize="15"/>
+                                            <!-- Open setting button -->
+                                            <Button Style="{StaticResource WindowControlButton}" >
+                                                <TextBlock Text="{StaticResource MaterialDesignCogIcon}"
+                                                           FontFamily="{StaticResource MaterialDesign}"/>
                                             </Button>
 
+                                            <!-- Minimize window button -->
                                             <Button Style="{StaticResource WindowControlButton}"
                                                     Command="{Binding MinimizeCommand}">
-                                                <TextBlock FontFamily="{StaticResource MaterialDesign}"
-                                                           Text="{StaticResource MaterialDesignMinimizeIcon}"
-                                                           FontSize="15"/>
+                                                <TextBlock Text="{StaticResource MaterialDesignMinimizeIcon}"
+                                                           FontFamily="{StaticResource MaterialDesign}"/>
                                             </Button>
 
-                                            <Button Style="{StaticResource WindowControlButton}"
+                                            <!-- Close window button -->
+                                            <Button Style="{StaticResource WindowControlCloseButton}"
                                                     Command="{Binding CloseCommand}">
-                                                <TextBlock FontFamily="{StaticResource MaterialDesign}"
-                                                           Text="{StaticResource MaterialDesignCloseIcon}"
-                                                           FontSize="15"/>
+                                                <TextBlock Text="{StaticResource MaterialDesignClose2Icon}"
+                                                           FontFamily="{StaticResource MaterialDesign}"/>
                                             </Button>
 
                                         </StackPanel>
                                         
-                                        
                                     </Grid>
+
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
                                     
                                 </Grid>
 
@@ -125,8 +130,8 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
-    
+
+
     <WindowChrome.WindowChrome>
         <WindowChrome 
             ResizeBorderThickness="{Binding ResizeBorderThickness}"
@@ -135,8 +140,9 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
+    
     <Grid>
-        
+        <Button Content="Hello"/>
     </Grid>
     
 </Window>
