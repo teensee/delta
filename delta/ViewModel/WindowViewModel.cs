@@ -60,7 +60,7 @@ namespace delta
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
         /// </summary>
-        public int ResizeBorder { get; set; } = 5;
+        public int ResizeBorder => Borderless ? 0 : 6;
 
         /// <summary>
         /// The size of the resize border around the window
@@ -110,7 +110,12 @@ namespace delta
         /// <summary>
         /// The padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentPadding => new Thickness(5);
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
+
+        /// <summary>
+        /// The current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
@@ -140,6 +145,10 @@ namespace delta
 
         #region Constructor
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="window"></param>
         public WindowViewModel(Window window)
         {
             mWindow = window;
