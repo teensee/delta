@@ -19,7 +19,7 @@
                     <ControlTemplate TargetType="{x:Type Window}">
 
                         <!-- Outer border with the dropshadow margin -->
-                        <Border Padding="{Binding OuterMarginSizeThickness}">
+                        <Border Margin="{Binding OuterMarginSizeThickness}">
                             <!-- Main window outline -->
                             <Grid>
                                 <!-- Window border and dropshadow -->
