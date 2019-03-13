@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace delta
 {
@@ -20,5 +23,30 @@ namespace delta
         {
             PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
+
+        #region Command Helpres
+
+        /// <summary>
+        /// Runs a command if the updating flag is not set.
+        /// If the flag is true (the function is already running) then the action is not run
+        /// If the flag is false(the function no running now) then the action is run.
+        /// Once the action is finished if it was run, then the flag is reset to false
+        /// </summary>
+        /// <param name="updatingFlag">The boolean property flag defining if the command is already runnig</param>
+        /// <param name="action">The action to run if the command is not already running</param>
+        /// <returns></returns>
+        protected async Task RunCommand(Expression<Func<bool>> updatingFlag, Func<Task> action)
+        {
+            //Check if the flag property is true(meaning the function is already running)
+            //I replace updatingFlag.Compile().Invoke() and write a ExpressionHelper class
+            //This class implement an extension method for Expression
+            if (updatingFlag.GetPropertyValue())
+                return;
+
+            //Set the property flag to true to indicate we are running
+            updatingFlag.SetPropertyValue(true);
+        }
+
+        #endregion
     }
 }

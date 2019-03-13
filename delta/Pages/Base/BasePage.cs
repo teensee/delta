@@ -9,8 +9,19 @@ namespace delta
     /// <summary>
     /// Base page for all pages to gain base functionallity
     /// </summary>
-    public class BasePage : Page
+    public class BasePage<VM> : Page
+        where VM: BaseViewModel, new()
     {
+
+        #region Private Member
+
+        /// <summary>
+        /// View Model assiciated with this page
+        /// </summary>
+        private VM mViewModel;
+
+        #endregion
+
         #region Public Properties
 
         /// <summary>
@@ -28,6 +39,25 @@ namespace delta
         /// </summary>
         public float SlideSeconds { get; set; } = 0.8f;
 
+        /// <summary>
+        /// View Model assiciated with this page
+        /// </summary>
+        public VM ViewModel
+        {
+            get => mViewModel;
+            set
+            {
+                if (mViewModel == value)
+                    return;
+
+                //Update the value
+                mViewModel = value;
+
+                //Set the data context for this page
+                this.DataContext = mViewModel;
+            }
+        }
+
         #endregion
 
         #region Default Constructor
@@ -43,6 +73,9 @@ namespace delta
 
             //Listen out for the page loading
             Loaded += BasePage_Loaded;
+
+            //Create a default view model
+            this.ViewModel = new VM();
         }
 
         #endregion
