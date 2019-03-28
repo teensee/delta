@@ -40,7 +40,7 @@ namespace delta
         /// <summary>
         /// Minimum window height
         /// </summary>
-        public double WindowMinimumHeight { get; set; } = 350;
+        public double WindowMinimumHeight { get; set; } = 390;
 
         /// <summary>
         /// Maximum window width
@@ -60,7 +60,7 @@ namespace delta
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
         /// </summary>
-        public int ResizeBorder => Borderless ? 0 : 6;
+        public int ResizeBorder => Borderless ? 0 : 3;
 
         /// <summary>
         /// The size of the resize border around the window
@@ -115,7 +115,7 @@ namespace delta
         /// <summary>
         /// The current page of the application
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
 
         #endregion
 

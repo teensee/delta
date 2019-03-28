@@ -45,6 +45,17 @@ namespace delta
 
             //Set the property flag to true to indicate we are running
             updatingFlag.SetPropertyValue(true);
+
+            try
+            {
+                // Run the passed in action
+                await action();
+            }
+            finally
+            {
+                //Set the property flag back to false now it's finished
+                updatingFlag.SetPropertyValue(false);
+            }
         }
 
         #endregion

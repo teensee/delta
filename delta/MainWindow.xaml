@@ -10,7 +10,7 @@
         WindowStyle="None"
         x:Name="AppWindow"
         MinHeight="{Binding WindowMinimumHeight}" MinWidth="{Binding WindowMinimumWidth}"
-        Title="Hello,world!" Width="340" Height="370">
+        Title="Hello,world!" Width="340" Height="390">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -59,14 +59,27 @@
                                                 HorizontalAlignment="Center" 
                                                 VerticalAlignment="Center">
 
-                                            <!--<Border.InputBindings>
-                                                <MouseBinding MouseAction="LeftClick" Command="{Binding SystemMenuCommand}"/>
-                                            </Border.InputBindings>-->
+                                                <!--<Border.InputBindings>
+                                                    <MouseBinding MouseAction="LeftClick" Command="{Binding SystemMenuCommand}"/>
+                                                </Border.InputBindings>-->
 
-                                            <TextBlock FontSize="13"  
-                                                       Text="LoudChat" 
-                                                       Margin="15 0 10 0"/>
-                                        </Border>
+                                                <StackPanel Orientation="Horizontal" 
+                                                            Margin="15 0 10 0">
+
+                                                    <!-- Delta Icon -->
+                                                    <TextBlock FontSize="13"  
+                                                               Text="{StaticResource MaterialDesignDeltaIcon}"
+                                                               FontFamily="{StaticResource MaterialDesign}"
+                                                               VerticalAlignment="Center"
+                                                               />
+                                                    
+                                                    <!-- Text -->
+                                                    <TextBlock FontSize="13"
+                                                               Text="Chat"
+                                                               VerticalAlignment="Center"/>
+                                                </StackPanel>
+                                                
+                                            </Border>
 
                                         <!-- Viewers counter -->
                                         <StackPanel Orientation="Horizontal" 
@@ -74,16 +87,10 @@
                                                     VerticalAlignment="Center">
 
                                             <TextBlock FontFamily="{StaticResource FontAwesome}"
-                                                       Text="{StaticResource FontAwesomeUserIcon}"
+                                                       Text="Ты тут?"
                                                        FontSize="13"
                                                        VerticalAlignment="Center"
-                                                       Foreground="Red"
                                                        Margin="10 0 5 0"/>
-
-                                            <TextBlock Text="123" 
-                                                       FontSize="13"
-                                                       FontFamily="{StaticResource LatoRegular}"
-                                                       VerticalAlignment="Center"/>
 
                                         </StackPanel>
                                         
@@ -92,27 +99,22 @@
                                                     Grid.Column="2"
                                                     Margin="0 0 8 0">
 
-                                            <!-- Open setting button -->
-                                            <Button Style="{StaticResource WindowControlButton}" >
-                                                <TextBlock Text="{StaticResource MaterialDesignCogIcon}"
-                                                           FontFamily="{StaticResource MaterialDesign}"/>
-                                            </Button>
-
                                             <!-- Minimize window button -->
-                                            <Button Style="{StaticResource WindowControlButton}"
-                                                    Command="{Binding MinimizeCommand}">
-                                                <TextBlock Text="{StaticResource MaterialDesignMinimizeIcon}"
-                                                           FontFamily="{StaticResource MaterialDesign}"/>
-                                            </Button>
+                                                <Button Style="{StaticResource WindowControlButton}"
+                                                        Command="{Binding MinimizeCommand}"
+                                                        Content="{StaticResource MaterialDesignMinimizeIcon}"/>
 
-                                            <!-- Close window button -->
-                                            <Button Style="{StaticResource WindowControlCloseButton}"
-                                                    Command="{Binding CloseCommand}">
-                                                <TextBlock Text="{StaticResource MaterialDesignClose2Icon}"
-                                                           FontFamily="{StaticResource MaterialDesign}"/>
-                                            </Button>
+                                                <!-- Maximize button -->
+                                                <Button Style="{StaticResource WindowControlButton}"
+                                                        Content="{StaticResource MaterialDesignMaximizeIcon}"
+                                                        Command="{Binding MaximizeCommand}"/>
 
-                                        </StackPanel>
+                                                <!-- Close window button -->
+                                                <Button Style="{StaticResource WindowControlCloseButton}"
+                                                        Command="{Binding CloseCommand}"
+                                                        Content="{StaticResource MaterialDesignClose2Icon}"/>
+
+                                            </StackPanel>
                                         
                                     </Grid>
                                     </Border>
@@ -140,7 +142,22 @@
     </WindowChrome.WindowChrome>
     
     <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
         <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+
+        <!-- Bottom menu control-->
+        <local:BottomMenuControl Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="11"/>
+                <Button Content="11"/>
+            </StackPanel>
+        </local:BottomMenuControl>
+        
     </Grid>
     
 </Window>

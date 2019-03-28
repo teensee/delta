@@ -35,8 +35,10 @@
     <system:String x:Key="MaterialDesignCloseIcon">&#xf156;</system:String>
     <system:String x:Key="MaterialDesignClose2Icon">&#xf5ad;</system:String>
     <system:String x:Key="MaterialDesignCogIcon">&#xf493;</system:String>
+    <system:String x:Key="MaterialDesignLoadIcon">&#xf771;</system:String>
+    <system:String x:Key="MaterialDesignMaximizeIcon">&#xf5af;</system:String>
 
-    <!-- Font Awesome Icons -->
+        <!-- Font Awesome Icons -->
     <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>
     <system:String x:Key="FontAwesomeCogIcon">&#xf013;</system:String>
     <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>

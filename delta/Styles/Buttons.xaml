@@ -6,6 +6,7 @@
         <!--Order is important-->
         <ResourceDictionary Source="/Styles/Fonts.xaml"/>
         <ResourceDictionary Source="/Styles/Colors.xaml"/>
+        <ResourceDictionary Source="/Styles/Texts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!-- Hoverless -->
@@ -42,23 +43,19 @@
         <Setter Property="Foreground" Value="{StaticResource ForegroundDarkBrush}"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="Margin" Value="0 5"/>
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesign}"/>
 
-        <!--<Setter Property="LayoutTransform">
-            <Setter.Value>
-                <ScaleTransform ScaleX="1.2"/>
-            </Setter.Value>
-        </Setter>-->
-        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}"
                             Padding="{TemplateBinding Padding}">
 
-                        <ContentPresenter VerticalAlignment="Center" 
-                                   HorizontalAlignment="Center"/>
-
-
+                        <TextBlock Text="{TemplateBinding Content}"
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                   VerticalAlignment="Center"/>
 
                     </Border>
                 </ControlTemplate>
@@ -96,6 +93,8 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
 
+        <Setter Property="local:IsBusyProperty.Value" Value="False"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -104,8 +103,10 @@
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             Background="{TemplateBinding Background}" 
                             SnapsToDevicePixels="True">
-                        
-                        <TextBlock x:Name="contentPresenter" 
+                        <Grid>
+
+                            <TextBlock x:Name="contentPresenter" 
+                                   Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
                                    Text="{TemplateBinding Content}"
                                    Focusable="False" 
                                    FontFamily="{TemplateBinding FontFamily}"
@@ -113,6 +114,17 @@
                                    Margin="{TemplateBinding Padding}" 
                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                            <TextBlock Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       FontFamily="{StaticResource MaterialDesign}"
+                                       Style="{StaticResource SpinningText}"
+                                       Text="{StaticResource MaterialDesignLoadIcon}"/>
+
+                        </Grid>
+                        
+                        
                     </Border>
                     
                     <ControlTemplate.Triggers>
@@ -175,6 +187,71 @@
                             <Setter Property="Foreground" Value="{StaticResource WordRedBrush}"/>
                         </Trigger>
 
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Buttons in bottom menu -->
+    <Style TargetType="{x:Type Button}" x:Key="BottomMenuButton" BasedOn="{StaticResource BaseStyle}">
+
+        <Setter Property="Background" Value="{StaticResource ForegroundLightBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundVeryDarkBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource MaterialDesign}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+        <Setter Property="Padding" Value="3"/>
+
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                        <Grid>
+
+                            <Viewbox>
+                                <TextBlock x:Name="contentPresenter" 
+                                           Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
+                                           Text="{TemplateBinding Content}"
+                                           Focusable="False" 
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           Margin="{TemplateBinding Padding}" 
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                           VerticalAlignment="Center"/>
+                            </Viewbox>
+                        </Grid>
+
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource WordBlue}" Duration="0:0:0.11" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    <ColorAnimation To="{StaticResource ForegroundLight}" Duration="0:0:0.11" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Foreground.Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource ForegroundLight}" Duration="0:0:0.11" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    <ColorAnimation To="{StaticResource BackgroundDark}" Duration="0:0:0.11" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Foreground.Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
                     </ControlTemplate.Triggers>
 
                 </ControlTemplate>

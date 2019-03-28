@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="delta.BottomMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:delta"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="340">
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            
+            <!-- Main background-->
+            <Border Grid.Row="1" 
+                    BorderThickness="0 1 0 0" 
+                    BorderBrush="{StaticResource BackgroundLightBrush}"
+                    Height="25">
+
+                <!-- Content -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <!-- Channel list -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- Buttons -->
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- User content here... -->
+                    <ContentPresenter Grid.Column="0"/>
+
+                    <!-- Main buttons -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button Style="{StaticResource BottomMenuButton}" Content="{StaticResource MaterialDesignCogIcon}"/>
+                        <Button Style="{StaticResource BottomMenuButton}" Content="{StaticResource MaterialDesignDeltaIcon}"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
+    
+    
+</UserControl>
