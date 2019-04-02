@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,18 +18,18 @@ using System.Windows.Shapes;
 namespace delta
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterPage : BasePage<LoginViewModel>, IHavePassword
     {
-
-        public ApplicationViewModel ApplicationViewModel => new ApplicationViewModel();
-
-        public MainWindow()
+        public RegisterPage()
         {
             InitializeComponent();
-
-            DataContext = new WindowViewModel(this);
         }
+
+        /// <summary>
+        /// SecurePassword for this login page
+        /// </summary>
+        public SecureString SecretPassword => PasswordText.SecurePassword;
     }
 }

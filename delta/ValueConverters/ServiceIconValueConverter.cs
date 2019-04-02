@@ -1,11 +1,12 @@
-﻿using System;
+﻿using delta.Core;
+using System;
 using System.Diagnostics;
 using System.Globalization;
 
 namespace delta
 {
     /// <summary>
-    /// Converts the <see cref="ApplicationPage"/> to an actual view/page
+    /// Converts the <see cref="ServiceIconEnum"/> to an icon
     /// </summary>
     public class ServiceIconValueConverter : BaseValueConverter<ServiceIconValueConverter>
     {

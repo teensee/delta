@@ -1,4 +1,5 @@
-﻿using System;
+﻿using delta.Core;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -112,10 +113,7 @@ namespace delta
         /// </summary>
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
-        /// <summary>
-        /// The current page of the application
-        /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
+
 
         #endregion
 

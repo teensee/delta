@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace delta
+namespace delta.Core
 {
     /// <summary>
     /// View Model for the overview chat list

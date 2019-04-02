@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace delta
+namespace delta.Core
 {
     /// <summary>
     /// A basic command that runs an Action

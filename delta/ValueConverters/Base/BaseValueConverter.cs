@@ -17,7 +17,7 @@ namespace delta
         /// <summary>
         /// A single static instance of this value converter
         /// </summary>
-        private static T mConverter = null;
+        private static T Converter = null;
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace delta
         /// </summary>
         /// <param name="serviceProvider">the service provider</param>
         /// <returns></returns>
-        public override object ProvideValue(IServiceProvider serviceProvider) => mConverter ?? (mConverter = new T());
+        public override object ProvideValue(IServiceProvider serviceProvider) => Converter ?? (Converter = new T());
 
         #endregion
 

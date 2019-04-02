@@ -9,6 +9,7 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="Margin" Value="0 5"/>
+        <Setter Property="Background" Value="{StaticResource ForegroundLightBrush}"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -81,6 +82,7 @@
         <Setter Property="Padding" Value="8"/>
         <Setter Property="Margin" Value="0 5"/>
         <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
+        <Setter Property="Background" Value="{StaticResource ForegroundLightBrush}"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -136,6 +138,7 @@
         <Setter Property="FontFamily" Value="{StaticResource MaterialDesign}"/>
         <Setter Property="Text" Value="{StaticResource MaterialDesignLoadIcon}"/>
         <Setter Property="RenderTransformOrigin" Value="0.5 0.5"/>
+        
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <RotateTransform/>

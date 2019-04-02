@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace delta
+namespace delta.Core
 {
     /// <summary>
     /// Helper for the <see cref="SecureString"/> class

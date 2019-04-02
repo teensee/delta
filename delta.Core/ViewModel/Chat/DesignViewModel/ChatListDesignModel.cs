@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace delta
+namespace delta.Core
 {
     /// <summary>
     /// design time data for <see cref="ChatListDesignModel"/>

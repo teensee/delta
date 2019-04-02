@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace delta
+namespace delta.Core
 {
     /// <summary>
     /// A base view model that fires Property Changed events as needed

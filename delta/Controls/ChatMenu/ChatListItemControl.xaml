@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:delta"
+             xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
              mc:Ignorable="d" 
              Height="25"
              d:DesignHeight="25">
@@ -83,7 +84,7 @@
     
     
 
-    <ContentControl d:DataContext="{x:Static local:ChatListItemDesignModel.Instance}"
+    <ContentControl d:DataContext="{x:Static core:ChatListItemDesignModel.Instance}"
                     Style="{StaticResource ContentControlStyle}"/>
 
 </UserControl>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:delta"
+        xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
         mc:Ignorable="d"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -148,7 +149,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+        <Frame x:Name="MainFrame" Content="{Binding ApplicationViewModel.CurrentPage, 
+                                                    ElementName=AppWindow,
+                                                    Converter={local:ApplicationPageValueConverter}}"/>
 
         <!-- Bottom menu control-->
         <local:BottomMenuControl Grid.Row="1">

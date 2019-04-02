@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace delta
+namespace delta.Core
 {
     /// <summary>
     /// A helper for expressions

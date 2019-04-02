@@ -1,4 +1,4 @@
-﻿namespace delta
+﻿namespace delta.Core
 {
     /// <summary>
     /// View Model for each chat list item in the overview chat list

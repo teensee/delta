@@ -1,4 +1,4 @@
-﻿namespace delta
+﻿namespace delta.Core
 {
     public enum ServiceIconEnum
     {
