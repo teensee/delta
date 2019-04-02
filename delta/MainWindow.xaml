@@ -153,8 +153,7 @@
         <!-- Bottom menu control-->
         <local:BottomMenuControl Grid.Row="1">
             <StackPanel Orientation="Horizontal">
-                <Button Content="11"/>
-                <Button Content="11"/>
+                <local:ChatListControl/>
             </StackPanel>
         </local:BottomMenuControl>
         

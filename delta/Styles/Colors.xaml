@@ -32,4 +32,7 @@
     <Color x:Key="WordGreen">#00c541</Color>
     <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}"/>
 
+    <Color x:Key="TwitchMainColor">#6441a4</Color>
+    <SolidColorBrush x:Key="TwitchMainColorBrush" Color="{StaticResource TwitchMainColor}"/>
+
 </ResourceDictionary>
