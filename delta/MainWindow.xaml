@@ -148,9 +148,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        <Frame x:Name="MainFrame" Content="{Binding ApplicationViewModel.CurrentPage, 
-                                                    ElementName=AppWindow,
+
+        <Frame x:Name="MainFrame" Content="{Binding AppViewModel.CurrentPage, 
+                                                    Source={x:Static local:ViewModelLocator.Instance}, 
                                                     Converter={local:ApplicationPageValueConverter}}"/>
 
         <!-- Bottom menu control-->

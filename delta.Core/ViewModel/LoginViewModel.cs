@@ -7,7 +7,6 @@ namespace delta.Core
 {
     public class LoginViewModel : BaseViewModel
     {
-
         #region Public Properties
 
         /// <summary>
@@ -81,6 +80,7 @@ namespace delta.Core
         {
             // TODO: Go to register page
             //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
+            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
 
             await Task.Delay(1);
         }

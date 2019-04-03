@@ -56,7 +56,8 @@ namespace delta
         /// <summary>
         /// True if the window should be borderless because it is docked or maximized
         /// </summary>
-        public bool Borderless => mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked;
+        public bool Borderless =>
+            mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked;
 
         /// <summary>
         /// The size of the resize border around the window, taking into account the outer margin
@@ -113,8 +114,6 @@ namespace delta
         /// </summary>
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
-
-
         #endregion
 
         #region Public Commands
@@ -159,10 +158,10 @@ namespace delta
             };
 
             // Fix window resize issue
-            var resizer = new WindowResizer(mWindow);
+            var resize = new WindowResizer(mWindow);
             
             // Listen out for dock changes
-            resizer.WindowDockChanged += (dock) =>
+            resize.WindowDockChanged += (dock) =>
             {
                 // Store last position
                 mDockPosition = dock;

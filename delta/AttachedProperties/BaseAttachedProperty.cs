@@ -36,7 +36,9 @@ namespace delta
                 "Value", 
                 typeof(Property), 
                 typeof(BaseAttachedProperty<Parent, Property>), 
-                new PropertyMetadata(new PropertyChangedCallback(OnValuePropertyChanged)));
+                new PropertyMetadata(
+                    new PropertyChangedCallback(OnValuePropertyChanged)
+                    ));
 
         /// <summary>
         /// Callback event whent the <see cref="ValueProperty"/> is changed
