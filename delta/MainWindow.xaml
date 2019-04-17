@@ -154,7 +154,9 @@
                                                     Converter={local:ApplicationPageValueConverter}}"/>
 
         <!-- Bottom menu control-->
-        <local:BottomMenuControl Grid.Row="1">
+        <local:BottomMenuControl Grid.Row="1"
+                                 local:AnimateSlideInFromLeftProperty.Value="{Binding AppViewModel.BottomMenuVisible, 
+                                                                                      Source={x:Static local:ViewModelLocator.Instance}}">
             <StackPanel Orientation="Horizontal">
                 <local:ChatListControl/>
             </StackPanel>
