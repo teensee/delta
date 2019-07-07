@@ -88,6 +88,9 @@
     <Compile Include="Controls\ChatMenu\ChatListItemControl.xaml.cs">
       <DependentUpon>ChatListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ChatMessageItem\ChatMessageListControl.xaml.cs">
+      <DependentUpon>ChatMessageListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ChatMessageItem\ChatMessageItemControl.xaml.cs">
       <DependentUpon>ChatMessageItemControl.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
     <Page Include="Controls\ChatMenu\ChatListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ChatMessageItem\ChatMessageListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\ChatMessageItem\ChatMessageItemControl.xaml">
       <Generator>MSBuild:Compile</Generator>

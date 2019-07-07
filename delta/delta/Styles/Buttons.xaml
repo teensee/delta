@@ -91,7 +91,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="{StaticResource LatoRegular}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
+        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
 
         <Setter Property="local:IsBusyProperty.Value" Value="False"/>
 
@@ -110,6 +110,7 @@
                                    Text="{TemplateBinding Content}"
                                    Focusable="False" 
                                    FontFamily="{TemplateBinding FontFamily}"
+                                   FontSize="{TemplateBinding FontSize}"
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                    Margin="{TemplateBinding Padding}" 
                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
