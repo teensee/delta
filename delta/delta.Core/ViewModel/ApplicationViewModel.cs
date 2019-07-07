@@ -20,5 +20,16 @@ namespace delta.Core
         /// True is the bottom menu should be show
         /// </summary>
         public bool BottomMenuVisible { get; set; } = false;
+
+        /// <summary>
+        /// Naviagate to specify page
+        /// </summary>
+        /// <param name="page">the page to go to</param>
+        public void GoToPage(ApplicationPage page)
+        {
+            CurrentPage = page;
+
+            BottomMenuVisible = page == ApplicationPage.Chat;
+        }
     }
 }

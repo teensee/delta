@@ -63,13 +63,16 @@ namespace delta.Core
         {
             await RunCommand(() => LoginIsRunning, async () =>
             {
-                await Task.Delay(5000);
+                await Task.Delay(1000);
 
-                var email = Email;
-                var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
+                //Go to chat page
+                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
+
+                //var email = Email;
+                //var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
+
             });
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Chat;
-            IoC.Get<ApplicationViewModel>().BottomMenuVisible ^= true;
+
         }
 
         /// <summary>
@@ -79,7 +82,7 @@ namespace delta.Core
         private async Task Register()
         {
             // TODO: Go to register page?
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
 
             await Task.Delay(1);
         }

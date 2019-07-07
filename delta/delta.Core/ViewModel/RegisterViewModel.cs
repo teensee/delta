@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace delta.Core
 {
-    public class RegisretViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         #region Public Properties
 
@@ -45,41 +45,38 @@ namespace delta.Core
         /// <summary>
         /// Default constructor
         /// </summary>
-        public LoginViewModel()
+        public RegisterViewModel()
         {
             //Create a command
-            LoginCommand = new RelayParameterizedCommand(async (param) => await Login(param));
-            RegisterCommand = new RelayCommand(async () => await Register());
+            RegisterCommand = new RelayParameterizedCommand(async (param) => await Register(param));
+            LoginCommand = new RelayCommand(async () => await Login());
         }
 
         #endregion
 
         /// <summary>
-        /// Attempts to log the user in
+        /// Attempts to register the user in
         /// </summary>
         /// <param name="param">The <see cref="SecureString"/> passed in from the view for the users password </param>
         /// <returns></returns>
-        private async Task Login(object param)
+        private async Task Register(object param)
         {
             await RunCommand(() => RegisterIsRunning, async () =>
             {
                 await Task.Delay(5000);
 
-                var email = Email;
-                var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
             });
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Chat;
-            IoC.Get<ApplicationViewModel>().BottomMenuVisible ^= true;
+
         }
 
         /// <summary>
-        /// Takes the user to the register page
+        /// Takes the user to the login page
         /// </summary>
         /// <returns></returns>
-        private async Task Register()
+        private async Task Login()
         {
             // TODO: Go to register page?
-            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
 
             await Task.Delay(1);
         }
