@@ -42,6 +42,13 @@ namespace delta.Core
                     IconRGB = "ff4747",
 
                 },
+                new ChatListItemViewModel
+                {
+                    ServiceIcon = ServiceIconEnum.YouTube,
+                    ViewerCount = 222,
+                    IconRGB = "ff4747",
+
+                },
              };
         }
 

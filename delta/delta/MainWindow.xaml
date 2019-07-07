@@ -30,7 +30,7 @@
                                         <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
                                     </Border.Effect>
                                 </Border>
-                                
+
                                 <!-- Main window content -->
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -42,20 +42,20 @@
 
                                     <!-- Title bar -->
                                     <Border BorderBrush="{StaticResource BackgroundLightBrush}"
-                                            BorderThickness="0 0 0 1"> 
+                                            BorderThickness="0 0 0 1">
                                         <Grid Grid.Row="0" Panel.ZIndex="1">
 
-                                        <Grid.ColumnDefinitions>
-                                            <!-- Icon -->
-                                            <ColumnDefinition Width="Auto" />
-                                            <!-- Viewers -->
-                                            <ColumnDefinition Width="*" />
-                                            <!-- Window action buttons -->
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <!-- Icon -->
+                                                <ColumnDefinition Width="Auto" />
+                                                <!-- Viewers -->
+                                                <ColumnDefinition Width="*" />
+                                                <!-- Window action buttons -->
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
 
-                                        <!-- Chat name :)-->
-                                        <Border BorderBrush="{StaticResource ForegroundDarkBrush}"
+                                            <!-- Chat name :)-->
+                                            <Border BorderBrush="{StaticResource ForegroundDarkBrush}"
                                                 BorderThickness="0 0 1 0"
                                                 HorizontalAlignment="Center" 
                                                 VerticalAlignment="Center">
@@ -73,34 +73,34 @@
                                                                FontFamily="{StaticResource MaterialDesign}"
                                                                VerticalAlignment="Center"
                                                                />
-                                                    
+
                                                     <!-- Text -->
                                                     <TextBlock FontSize="13"
                                                                Text="Chat"
                                                                VerticalAlignment="Center"/>
                                                 </StackPanel>
-                                                
+
                                             </Border>
 
-                                        <!-- Viewers counter -->
-                                        <StackPanel Orientation="Horizontal" 
+                                            <!-- Viewers counter -->
+                                            <StackPanel Orientation="Horizontal" 
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center">
 
-                                            <TextBlock FontFamily="{StaticResource FontAwesome}"
+                                                <TextBlock FontFamily="{StaticResource FontAwesome}"
                                                        Text="Ты тут?"
                                                        FontSize="13"
                                                        VerticalAlignment="Center"
                                                        Margin="10 0 5 0"/>
 
-                                        </StackPanel>
-                                        
-                                        <!-- Window Control Buttons -->
-                                        <StackPanel Orientation="Horizontal" 
+                                            </StackPanel>
+
+                                            <!-- Window Control Buttons -->
+                                            <StackPanel Orientation="Horizontal" 
                                                     Grid.Column="2"
                                                     Margin="0 0 8 0">
 
-                                            <!-- Minimize window button -->
+                                                <!-- Minimize window button -->
                                                 <Button Style="{StaticResource WindowControlButton}"
                                                         Command="{Binding MinimizeCommand}"
                                                         Content="{StaticResource MaterialDesignMinimizeIcon}"/>
@@ -116,8 +116,8 @@
                                                         Content="{StaticResource MaterialDesignClose2Icon}"/>
 
                                             </StackPanel>
-                                        
-                                    </Grid>
+
+                                        </Grid>
                                     </Border>
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}"/>
@@ -141,17 +141,20 @@
             GlassFrameThickness="0"
             />
     </WindowChrome.WindowChrome>
-    
+
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Frame x:Name="MainFrame" Content="{Binding AppViewModel.CurrentPage, 
-                                                    Source={x:Static local:ViewModelLocator.Instance}, 
-                                                    Converter={local:ApplicationPageValueConverter}}"/>
+        <local:PageHost
+               d:DataContext=""
+               DataContext="{Binding AppViewModel.CurrentPage, 
+                                 Source={x:Static local:ViewModelLocator.Instance}, 
+                                 Converter={local:ApplicationPageValueConverter}}"
+               CurrentPage="{Binding}"/>
 
         <!-- Bottom menu control-->
         <local:BottomMenuControl Grid.Row="1"
@@ -161,7 +164,7 @@
                 <local:ChatListControl/>
             </StackPanel>
         </local:BottomMenuControl>
-        
+
     </Grid>
-    
+
 </Window>

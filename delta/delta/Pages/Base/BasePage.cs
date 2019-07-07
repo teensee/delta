@@ -10,19 +10,8 @@ namespace delta
     /// <summary>
     /// Base page for all pages to gain base functionallity
     /// </summary>
-    public class BasePage<VM> : Page
-        where VM: BaseViewModel, new()
+    public class BasePage : Page
     {
-
-        #region Private Member
-
-        /// <summary>
-        /// View Model assiciated with this page
-        /// </summary>
-        private VM mViewModel;
-
-        #endregion
-
         #region Public Properties
 
         /// <summary>
@@ -41,23 +30,10 @@ namespace delta
         public float SlideSeconds { get; set; } = 0.8f;
 
         /// <summary>
-        /// View Model assiciated with this page
+        /// Flag to indicate if this page should animate out on load
+        /// useful for when we are moving the page to another frame
         /// </summary>
-        public VM ViewModel
-        {
-            get => mViewModel;
-            set
-            {
-                if (mViewModel == value)
-                    return;
-
-                //Update the value
-                mViewModel = value;
-
-                //Set the data context for this page
-                this.DataContext = mViewModel;
-            }
-        }
+        public bool ShouldAnimateOut { get; set; }
 
         #endregion
 
@@ -75,8 +51,6 @@ namespace delta
             //Listen out for the page loading
             Loaded += BasePage_Loaded;
 
-            //Create a default view model
-            this.ViewModel = new VM();
         }
 
         #endregion
@@ -90,7 +64,17 @@ namespace delta
         /// <param name="e"></param>
         private async void BasePage_Loaded(object sender, RoutedEventArgs e)
         {
-            await AnimateIn();
+            //If we are setup to animate out on load
+            if (ShouldAnimateOut)
+            {
+                //Animate out
+                await AnimateOut();
+            }
+            else
+            {
+                //Animate the page in
+                await AnimateIn();
+            }
         }
 
         /// <summary>
@@ -135,5 +119,60 @@ namespace delta
         }
 
         #endregion
+    }
+
+    /// <summary>
+    /// A base page with added ViewModel support
+    /// </summary>
+    public class BasePage<VM> : BasePage
+        where VM: BaseViewModel, new()
+    {
+
+        #region Private Member
+
+        /// <summary>
+        /// View Model assiciated with this page
+        /// </summary>
+        private VM mViewModel;
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// View Model assiciated with this page
+        /// </summary>
+        public VM ViewModel
+        {
+            get => mViewModel;
+            set
+            {
+                if (mViewModel == value)
+                    return;
+
+                //Update the value
+                mViewModel = value;
+
+                //Set the data context for this page
+                this.DataContext = mViewModel;
+            }
+        }
+
+        #endregion
+
+        #region Default Constructor
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public BasePage() : base()
+        {
+            //Create a default view model
+            this.ViewModel = new VM();
+        }
+
+        #endregion
+
+        
     }
 }

@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace delta.Core
 {
-    public class LoginViewModel : BaseViewModel
+    public class RegisretViewModel : BaseViewModel
     {
         #region Public Properties
 
@@ -20,9 +20,9 @@ namespace delta.Core
         public SecureString Password { get; set; }
 
         /// <summary>
-        /// A flag indicates if the login command is running
+        /// A flag indicates if the register command is running
         /// </summary>
-        public bool LoginIsRunning { get; set; }
+        public bool RegisterIsRunning { get; set; }
 
         #endregion
 
@@ -61,15 +61,15 @@ namespace delta.Core
         /// <returns></returns>
         private async Task Login(object param)
         {
-            await RunCommand(() => LoginIsRunning, async() => 
+            await RunCommand(() => RegisterIsRunning, async () =>
             {
                 await Task.Delay(5000);
 
                 var email = Email;
                 var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
             });
-            
-
+            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Chat;
+            IoC.Get<ApplicationViewModel>().BottomMenuVisible ^= true;
         }
 
         /// <summary>
