@@ -17,7 +17,7 @@ namespace delta
         /// <summary>
         /// The margin around the window to allow for a drop-shadow
         /// </summary>
-        private int mOuterMarginSize = 5;
+        private int mOuterMarginSize = 3;
 
         /// <summary>
         /// The radius of the edges of the window

@@ -20,7 +20,7 @@
                     <ControlTemplate TargetType="{x:Type Window}">
 
                         <!-- Outer border with the dropshadow margin -->
-                        <Border Margin="{Binding OuterMarginSizeThickness}">
+                        <Border Padding="{Binding OuterMarginSizeThickness}">
                             <!-- Main window outline -->
                             <Grid>
                                 <!-- Window border and dropshadow -->
@@ -56,13 +56,9 @@
 
                                             <!-- Chat name :)-->
                                             <Border BorderBrush="{StaticResource ForegroundDarkBrush}"
-                                                BorderThickness="0 0 1 0"
-                                                HorizontalAlignment="Center" 
-                                                VerticalAlignment="Center">
-
-                                                <!--<Border.InputBindings>
-                                                    <MouseBinding MouseAction="LeftClick" Command="{Binding SystemMenuCommand}"/>
-                                                </Border.InputBindings>-->
+                                                    BorderThickness="0 0 1 0"
+                                                    HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center">
 
                                                 <StackPanel Orientation="Horizontal" 
                                                             Margin="15 0 10 0">
@@ -82,7 +78,7 @@
 
                                             </Border>
 
-                                            <!-- Viewers counter -->
+                                            <!-- Are you here?) -->
                                             <StackPanel Orientation="Horizontal" 
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center">
@@ -133,6 +129,7 @@
     </Window.Resources>
 
 
+    <!-- WindowChrome around the window-->
     <WindowChrome.WindowChrome>
         <WindowChrome 
             ResizeBorderThickness="{Binding ResizeBorderThickness}"
@@ -149,12 +146,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <local:PageHost
-               d:DataContext=""
-               DataContext="{Binding AppViewModel.CurrentPage, 
-                                 Source={x:Static local:ViewModelLocator.Instance}, 
-                                 Converter={local:ApplicationPageValueConverter}}"
-               CurrentPage="{Binding}"/>
+        <local:PageHost DataContext="{Binding AppViewModel.CurrentPage, 
+                                              Source={x:Static local:ViewModelLocator.Instance}, 
+                                              Converter={local:ApplicationPageValueConverter}}"
+                        CurrentPage="{Binding}"/>
 
         <!-- Bottom menu control-->
         <local:BottomMenuControl Grid.Row="1"

@@ -6,12 +6,24 @@
              xmlns:local="clr-namespace:delta"
              xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
              mc:Ignorable="d" d:DesignWidth="200"
-             >
+             d:DataContext="{x:Static core:ChatMessageListItemDesignModel.Instance}">
 
-    <Border Padding="10">
+    <Border Padding="0 10 10 10">
 
-        <Grid Background="{StaticResource BackgroundLightBrush}">
-            <Border Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--Chat bubble anchor-->
+            <Path Grid.Column="0" 
+                  Fill="{StaticResource BackgroundLightBrush}"
+                  Data="M 8,0 L 16,10 L 16,0"/>
+            
+            <Border Grid.Column="1" 
+                    Padding="10" 
+                    Background="{StaticResource BackgroundLightBrush}">
                 <!--Message bubble-->
                 <Grid>
 
@@ -28,53 +40,50 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-
-
                         <!--Connected service icon-->
                         <TextBlock Grid.Column="0" 
-                            Text="&#xf543;"
-                            FontFamily="{StaticResource MaterialDesign}"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Foreground="{StaticResource TwitchMainColorBrush}"/>
+                                   Text="{Binding ServiceIcon, Converter={local:ServiceIconValueConverter}}"
+                                   FontFamily="{StaticResource MaterialDesign}"
+                                   HorizontalAlignment="Left"
+                                   FontSize="{StaticResource FontSizeRegular}"
+                                   VerticalAlignment="Center"
+                                   Foreground="{Binding IconRGB, Converter={local:StringRGBToBrushValueConverter}}"/>
 
 
                         <!--Username-->
                         <TextBlock Grid.Column="1" 
-                            Text="pizdabol"
-                            Padding="5 0 0 0"
-                            FontFamily="{StaticResource LatoRegular}"
-                            FontSize="{StaticResource FontSizeSmall}"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Foreground="{StaticResource ForegroundVeryDarkBrush}"/>
+                                   Text="{Binding Username}"
+                                   Padding="5 0 0 0"
+                                   FontFamily="{StaticResource LatoRegular}"
+                                   FontSize="{StaticResource FontSizeRegular}"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="{StaticResource ForegroundVeryDarkBrush}"/>
 
 
                         <!--Sent time-->
                         <TextBlock Grid.Column="2" 
-                            Text="09:55"
-                            Padding="5 0 0 0"
-                            FontFamily="{StaticResource LatoRegular}"
-                            FontSize="{StaticResource FontSizeSmall}"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Foreground="{StaticResource ForegroundVeryDarkBrush}"/>
-
+                                   Text="9:55"
+                                   Padding="5 0 0 0"
+                                   FontFamily="{StaticResource LatoRegular}"
+                                   FontSize="{StaticResource FontSizeSmall}"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="{StaticResource ForegroundVeryDarkBrush}"/>
 
                     </Grid>
+                   
 
                     <!--Message Content-->
-                    <Border Grid.Row="1" Padding="0 10 0 0">
+                    <Border Grid.Row="1" Padding="0 5 0 0">
                         <TextBlock VerticalAlignment="Center"
                             TextWrapping="Wrap"
                             FontFamily="{StaticResource LatoRegular}"
-                            Text="Не вижу ничаво крутова!Не вижу ничаво крутова!Не вижу ничаво крутова!"/>
-
+                            Text="{Binding Message}"/>
                     </Border>
                 </Grid>
             </Border>
         </Grid>
-
     </Border>
 
 </UserControl>
