@@ -27,7 +27,7 @@
                                 <Border CornerRadius="{Binding WindowCornerRadius}"
                                         Background="{StaticResource ForegroundLightBrush}">
                                     <Border.Effect>
-                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
                                     </Border.Effect>
                                 </Border>
 
@@ -35,9 +35,9 @@
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <!-- Title bar -->
-                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=43}"/>
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=43}" />
                                         <!-- Main content -->
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
 
                                     <!-- Title bar -->
@@ -57,29 +57,27 @@
                                             <!-- Chat name :)-->
                                             <Border BorderBrush="{StaticResource ForegroundDarkBrush}"
                                                     BorderThickness="0 0 1 0"
-                                                    HorizontalAlignment="Center" 
+                                                    HorizontalAlignment="Center"
                                                     VerticalAlignment="Center">
 
-                                                <StackPanel Orientation="Horizontal" 
+                                                <StackPanel Orientation="Horizontal"
                                                             Margin="15 0 10 0">
 
                                                     <!-- Delta Icon -->
-                                                    <TextBlock FontSize="13"  
+                                                    <TextBlock FontSize="13"
                                                                Text="{StaticResource MaterialDesignDeltaIcon}"
                                                                FontFamily="{StaticResource MaterialDesign}"
-                                                               VerticalAlignment="Center"
-                                                               />
+                                                               VerticalAlignment="Center" />
 
                                                     <!-- Text -->
                                                     <TextBlock FontSize="13"
                                                                Text="Chat"
-                                                               VerticalAlignment="Center"/>
+                                                               VerticalAlignment="Center" />
                                                 </StackPanel>
-
                                             </Border>
 
                                             <!-- Are you here?) -->
-                                            <StackPanel Orientation="Horizontal" 
+                                            <StackPanel Orientation="Horizontal"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center">
 
@@ -87,79 +85,71 @@
                                                        Text="Ты тут?"
                                                        FontSize="13"
                                                        VerticalAlignment="Center"
-                                                       Margin="10 0 5 0"/>
-
+                                                       Margin="10 0 5 0" />
                                             </StackPanel>
 
                                             <!-- Window Control Buttons -->
-                                            <StackPanel Orientation="Horizontal" 
+                                            <StackPanel Orientation="Horizontal"
                                                     Grid.Column="2"
                                                     Margin="0 0 8 0">
 
                                                 <!-- Minimize window button -->
                                                 <Button Style="{StaticResource WindowControlButton}"
                                                         Command="{Binding MinimizeCommand}"
-                                                        Content="{StaticResource MaterialDesignMinimizeIcon}"/>
+                                                        Content="{StaticResource MaterialDesignMinimizeIcon}" />
 
                                                 <!-- Maximize button -->
                                                 <Button Style="{StaticResource WindowControlButton}"
                                                         Content="{StaticResource MaterialDesignMaximizeIcon}"
-                                                        Command="{Binding MaximizeCommand}"/>
+                                                        Command="{Binding MaximizeCommand}" />
 
                                                 <!-- Close window button -->
                                                 <Button Style="{StaticResource WindowControlCloseButton}"
                                                         Command="{Binding CloseCommand}"
-                                                        Content="{StaticResource MaterialDesignClose2Icon}"/>
-
+                                                        Content="{StaticResource MaterialDesignClose2Icon}" />
                                             </StackPanel>
-
                                         </Grid>
                                     </Border>
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
-                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                        <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
                                 </Grid>
                             </Grid>
                         </Border>
-
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
     </Window.Resources>
 
-
     <!-- WindowChrome around the window-->
     <WindowChrome.WindowChrome>
-        <WindowChrome 
+        <WindowChrome
             ResizeBorderThickness="{Binding ResizeBorderThickness}"
             CornerRadius="{Binding WindowCornerRadius}"
             CaptionHeight="{Binding TitleHeight}"
-            GlassFrameThickness="0"
-            />
+            GlassFrameThickness="0" />
     </WindowChrome.WindowChrome>
 
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <local:PageHost DataContext="{Binding AppViewModel.CurrentPage, 
-                                              Source={x:Static local:ViewModelLocator.Instance}, 
+        <local:PageHost DataContext="{Binding AppViewModel.CurrentPage,
+                                              Source={x:Static local:ViewModelLocator.Instance},
                                               Converter={local:ApplicationPageValueConverter}}"
-                        CurrentPage="{Binding}"/>
+                        CurrentPage="{Binding}" />
 
         <!-- Bottom menu control-->
         <local:BottomMenuControl Grid.Row="1"
-                                 local:AnimateSlideInFromLeftProperty.Value="{Binding AppViewModel.BottomMenuVisible, 
+                                 local:AnimateSlideInFromLeftProperty.Value="{Binding AppViewModel.BottomMenuVisible,
                                                                                       Source={x:Static local:ViewModelLocator.Instance}}">
             <StackPanel Orientation="Horizontal">
-                <local:ChatListControl/>
+                <local:ChatListControl />
             </StackPanel>
         </local:BottomMenuControl>
-
     </Grid>
-
 </Window>

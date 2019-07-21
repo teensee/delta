@@ -1,11 +1,11 @@
 ﻿<UserControl x:Class="delta.ChatListControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:delta"
              xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="25">
 
     <Grid DataContext="{x:Static core:ChatListDesignModel.Instance}"
@@ -15,24 +15,21 @@
                       VerticalScrollBarVisibility="Disabled">
 
             <ItemsControl ItemsSource="{Binding Items}">
-                
+
                 <!-- Sets the horizontal orientation in itemsControl -->
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <StackPanel Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
-                
+
                 <!-- Sets the ItemTemplate in ItemControl-->
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ChatListItemControl/>
+                        <local:ChatListItemControl />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-
             </ItemsControl>
-
         </ScrollViewer>
-
     </Grid>
 </UserControl>

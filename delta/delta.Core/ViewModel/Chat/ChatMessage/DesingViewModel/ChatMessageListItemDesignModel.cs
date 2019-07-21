@@ -26,11 +26,11 @@ namespace delta.Core
         {
             ServiceIcon = ServiceIconEnum.Twitch;
             Username = "teensee";
-            Message = "Привет, вы все такие классные, подскажите как сделать неведомую хуйню?";
+            Message = "Это design-time текст. Тут вообще-то будет что-то интересное...наверно?";
             IconRGB = "6441a4";
             IsSelected = false;
-            SentByMe = false;
-            MessageSentTime = new System.DateTimeOffset(DateTime.Now);
+            SentByMe = true;
+            MessageSentTime = DateTimeOffset.UtcNow;
         }
 
         #endregion

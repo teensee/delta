@@ -5,10 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:delta"
              xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             d:DesignWidth="280"
+             d:DesignHeight="400">
 
     <Grid DataContext="{x:Static core:ChatMessageListDesignModel.Instance}"
-          Background="{StaticResource ForegroundLightBrush}">
+          Background="{StaticResource ForegroundLightBrush}"
+          VerticalAlignment="Top">
 
         <ScrollViewer VerticalScrollBarVisibility="Auto">
 

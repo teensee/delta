@@ -2,24 +2,36 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:delta">
 
+    <!-- Main colors -->
     <Color x:Key="BackgroundLight">#efefef</Color>
     <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
+
+    <Color x:Key="ForegroundMessageInfoTextLight">#bbbbbb</Color>
+    <SolidColorBrush x:Key="ForegroundMessageInfoTextLightBrush" Color="{StaticResource ForegroundMessageInfoTextLight}"/>
+
+    <Color x:Key="BackgroundMessageLight">#f1f1f1</Color>
+    <SolidColorBrush x:Key="BackgroundMessageLightBrush" Color="{StaticResource BackgroundMessageLight}"/>
+
+    <Color x:Key="BackgroundMessageDark">#dfdfdf</Color>
+    <SolidColorBrush x:Key="BackgroundMessageDarkBrush" Color="{StaticResource BackgroundMessageDark}"/>
 
     <Color x:Key="BackgroundVeryLight">#fafafa</Color>
     <SolidColorBrush x:Key="BackgroundVeryLightBrush" Color="{StaticResource BackgroundVeryLight}"/>
 
     <Color x:Key="BackgroundDark">#1c1c1c</Color>
     <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"/>
+    
+    <Color x:Key="ForegroundDark">#aeaeae</Color>
+    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"/>
 
     <Color x:Key="ForegroundVeryDark">#000000</Color>
     <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"/>
 
     <Color x:Key="ForegroundLight">#ffffff</Color>
     <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
-
-    <Color x:Key="ForegroundDark">#aeaeae</Color>
-    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"/>
-
+    <!-- End Main colors -->
+    
+    <!-- Nice colors -->
     <Color x:Key="WordBlue">#3099c5</Color>
     <SolidColorBrush x:Key="WordBlueBrush" Color="{StaticResource WordBlue}"/>
 
@@ -32,7 +44,12 @@
     <Color x:Key="WordGreen">#00c541</Color>
     <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}"/>
 
+    <!-- End Nice colors -->
+
+    <!-- Service main colors -->
     <Color x:Key="TwitchMainColor">#6441a4</Color>
     <SolidColorBrush x:Key="TwitchMainColorBrush" Color="{StaticResource TwitchMainColor}"/>
+
+    <!-- End Service main colors -->
 
 </ResourceDictionary>

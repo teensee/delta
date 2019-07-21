@@ -1,6 +1,5 @@
 ﻿using System.Security;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace delta.Core
@@ -24,7 +23,7 @@ namespace delta.Core
         /// </summary>
         public bool LoginIsRunning { get; set; }
 
-        #endregion
+        #endregion Public Properties
 
         #region Commands
 
@@ -38,7 +37,7 @@ namespace delta.Core
         /// </summary>
         public ICommand RegisterCommand { get; set; }
 
-        #endregion
+        #endregion Commands
 
         #region Constructor
 
@@ -52,7 +51,7 @@ namespace delta.Core
             RegisterCommand = new RelayCommand(async () => await Register());
         }
 
-        #endregion
+        #endregion Constructor
 
         /// <summary>
         /// Attempts to log the user in
@@ -70,9 +69,7 @@ namespace delta.Core
 
                 //var email = Email;
                 //var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
-
             });
-
         }
 
         /// <summary>
@@ -86,6 +83,5 @@ namespace delta.Core
 
             await Task.Delay(1);
         }
-
     }
 }
