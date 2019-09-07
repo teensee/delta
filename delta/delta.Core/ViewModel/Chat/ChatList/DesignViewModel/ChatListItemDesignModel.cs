@@ -24,7 +24,6 @@
         {
             ServiceIcon = ServiceIconEnum.Twitch;
             ViewerCount = 1501;
-            IconRGB = "6441a4";
         }
 
         #endregion

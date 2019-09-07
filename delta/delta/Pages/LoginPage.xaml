@@ -42,6 +42,7 @@
                         <!-- Email -->
                         <TextBox Style="{StaticResource TextBoxPlaceHolder}" 
                                  Text="{Binding Email}"
+                                 local:IsFocusedProperty.Value ="True"
                                  Tag="Email"
                                  Margin="0 0 0 5"
                                  Background="{StaticResource ForegroundLightBrush}"/>
@@ -52,6 +53,7 @@
 
                         <!-- Log In button -->
                         <Button Command="{Binding LoginCommand}" 
+                                IsDefault="True"
                                 local:IsBusyProperty.Value="{Binding LoginIsRunning}"
                                 CommandParameter="{Binding ElementName=Page}"
                                 Margin="5" 

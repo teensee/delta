@@ -43,6 +43,7 @@
                         <TextBox Style="{StaticResource TextBoxPlaceHolder}" 
                                  Text="{Binding Email}"
                                  Tag="Email"
+                                 local:IsFocusedProperty.Value ="True"
                                  Margin="0 0 0 5"
                                  Background="{StaticResource ForegroundLightBrush}"/>
                         <!-- Password -->

@@ -13,7 +13,7 @@ namespace delta
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? Application.Current.FindResource("BackgroundMessageDarkBrush") : Application.Current.FindResource("BackgroundMessageLightBrush");
+            return (bool)value ? Application.Current.FindResource("WordVeryVeryLightBlueBrush") : Application.Current.FindResource("BackgroundMessageLightBrush");
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -30,24 +30,28 @@ namespace delta.Core
                 {
                     ServiceIcon = ServiceIconEnum.Twitch,
                     ViewerCount = 9999,
-                    IconRGB = "6441a4",
                     IsSelected = true,
-
                 },
 
                 new ChatListItemViewModel
                 {
                     ServiceIcon = ServiceIconEnum.YouTube,
-                    ViewerCount = 222,
-                    IconRGB = "ff4747",
-
+                    ViewerCount = 123,
+                    IsSelected = false,
                 },
+
+                new ChatListItemViewModel
+                {
+                    ServiceIcon = ServiceIconEnum.Twitch,
+                    ViewerCount = 1000,
+                    IsSelected = false,
+                },
+
                 new ChatListItemViewModel
                 {
                     ServiceIcon = ServiceIconEnum.YouTube,
-                    ViewerCount = 222,
-                    IconRGB = "ff4747",
-
+                    ViewerCount = 3333,
+                    IsSelected = false,
                 },
              };
         }

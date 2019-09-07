@@ -184,8 +184,8 @@ namespace delta
         #region Private Methods
 
         /// <summary>
-        /// If the window resizes to a special position (docked or maximized)
-        /// this will update all required property change events to set the borders and radius values
+        /// If the window resizes to a special position (docked or maximized) this will update all
+        /// required property change events to set the borders and radius values
         /// </summary>
         private void WindowResized()
         {

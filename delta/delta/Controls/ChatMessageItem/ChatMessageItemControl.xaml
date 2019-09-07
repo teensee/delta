@@ -24,28 +24,11 @@
            
             <Border Grid.Column="1"
                     Padding="10"
+                    Margin="{Binding SentByMe, Converter={local:SentByMeMarginConverter}}"
                     Background="{Binding SentByMe, Converter={local:SentByMeBackgroundConverter}}">
                 <!--Message bubble-->
                 <Grid>
-                    
-                    <Grid.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard Storyboard.TargetName="TimeContainer" Storyboard.TargetProperty="Opacity">
-                                    <DoubleAnimation To="1" Duration="00:00:00.5"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard Storyboard.TargetName="TimeContainer" Storyboard.TargetProperty="Opacity">
-                                    <DoubleAnimation To="0" Duration="00:00:00.5"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Grid.Triggers>
-                    
+                   
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -66,12 +49,12 @@
                                    HorizontalAlignment="Left"
                                    FontSize="{StaticResource FontSizeRegular}"
                                    VerticalAlignment="Center"
-                                   Foreground="{Binding IconRGB, Converter={local:StringRGBToBrushValueConverter}}" />
+                                   Foreground="{Binding ServiceIcon, Converter={local:ServiceIconToBrushValueConverter}}" />
 
                         <!--Username-->
                         <TextBlock Grid.Column="1"
                                    Text="{Binding Username}"
-                                   Padding="5 0 0 0"
+                                   Padding="5 0"
                                    FontFamily="{StaticResource LatoRegular}"
                                    FontSize="{StaticResource FontSizeRegular}"
                                    HorizontalAlignment="Left"
@@ -82,7 +65,7 @@
                         <TextBlock Grid.Column="2"
                                    x:Name="TimeContainer"
                                    Text="{Binding MessageSentTime, Converter={local:TimeToDisplayTimeConverter}}"
-                                   Padding="5 0 0 0"
+                                   Padding="5 0"
                                    FontFamily="{StaticResource LatoRegular}"
                                    FontSize="{StaticResource FontSizeSmall}"
                                    HorizontalAlignment="Left"
@@ -93,9 +76,9 @@
                     <!--Message Content-->
                     <Border Grid.Row="1" Padding="0 5 0 0">
                         <TextBlock VerticalAlignment="Center"
-                            TextWrapping="Wrap"
-                            FontFamily="{StaticResource LatoRegular}"
-                            Text="{Binding Message}" />
+                                   TextWrapping="Wrap"
+                                   FontFamily="{StaticResource LatoRegular}"
+                                   Text="{Binding Message}" />
                     </Border>
                 </Grid>
             </Border>

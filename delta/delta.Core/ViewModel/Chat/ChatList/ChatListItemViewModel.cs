@@ -16,11 +16,6 @@
         public int ViewerCount { get; set; }
 
         /// <summary>
-        /// The RGB values in hex for the background color of the icon 
-        /// </summary>
-        public string IconRGB { get; set; }
-
-        /// <summary>
         /// True if this item currently selected
         /// </summary>
         public bool IsSelected { get; set; }

@@ -71,7 +71,7 @@
 
     </Style>
 
-    <!-- Window control button-->
+    <!-- Window control close button-->
     <Style TargetType="{x:Type Button}" x:Key="WindowControlCloseButton" BasedOn="{StaticResource WindowControlButton}">
         <!-- Change background color when mouse over -->
         <Style.Triggers>

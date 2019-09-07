@@ -31,7 +31,6 @@ namespace delta.Core
                     ServiceIcon = ServiceIconEnum.Twitch,
                     Username = "teensee",
                     Message = "Привет, вы все такие классные, подскажите как сделать неведомую хуйню?",
-                    IconRGB = "6441a4",
                     IsSelected = false,
                     SentByMe = true,
                     MessageSentTime = DateTimeOffset.UtcNow,
@@ -41,8 +40,7 @@ namespace delta.Core
                 {
                     ServiceIcon = ServiceIconEnum.YouTube,
                     Username = "аslan",
-                    Message = "Я ебал твой рот, вот это поворот!",
-                    IconRGB = "ff4747",
+                    Message = "Я 123 твой рот, вот это поворот!",
                     IsSelected = false,
                     SentByMe = false,
                     MessageSentTime = DateTimeOffset.UtcNow,
@@ -51,9 +49,8 @@ namespace delta.Core
                 new ChatMessageListItemViewModel
                 {
                     ServiceIcon = ServiceIconEnum.Twitch,
-                    Username = "дурачок",
+                    Username = "wellfeel",
                     Message = "Не вижу ничаво крутова!1!Не вижу ничаво крутова!1!Не вижу ничаво крутова!1!Не вижу ничаво крутова!1!",
-                    IconRGB = "6441a4",
                     IsSelected = false,
                     SentByMe = false,
                     MessageSentTime = DateTimeOffset.UtcNow,

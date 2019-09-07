@@ -81,7 +81,7 @@
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center">
 
-                                                <TextBlock FontFamily="{StaticResource FontAwesome}"
+                                                <TextBlock FontFamily="{StaticResource LatoRegular}"
                                                        Text="Ты тут?"
                                                        FontSize="13"
                                                        VerticalAlignment="Center"

@@ -70,10 +70,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Animation\FrameworkElementAnimations.cs" />
-    <Compile Include="Animation\PageAnimation.cs" />
+    <Compile Include="DataModels\PageAnimation.cs" />
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\TextAttachedProperties.cs" />
     <Compile Include="AttachedProperties\NoFrameHistory.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
     <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperty.cs" />
@@ -109,13 +110,15 @@
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\Base\BaseValueConverter.cs" />
-    <Compile Include="ValueConverters\SentByMeBackgroundConverter.cs" />
-    <Compile Include="ValueConverters\SentByMePathDataConverter.cs" />
-    <Compile Include="ValueConverters\SentByMeGridColumnConverter.cs" />
+    <Compile Include="ValueConverters\SentByMe\SentByMeMarginConverter.cs" />
+    <Compile Include="ValueConverters\SentByMe\SentByMeBackgroundConverter.cs" />
+    <Compile Include="ValueConverters\SentByMe\SentByMePathDataConverter.cs" />
+    <Compile Include="ValueConverters\SentByMe\SentByMeGridColumnConverter.cs" />
+    <Compile Include="ValueConverters\ServiceIcon\ServiceIconToBrushValueConverter.cs" />
     <Compile Include="ValueConverters\TimeToDisplayTimeConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
-    <Compile Include="ValueConverters\ServiceIconValueConverter.cs" />
+    <Compile Include="ValueConverters\ServiceIcon\ServiceIconValueConverter.cs" />
     <Compile Include="ValueConverters\StringRGBToBrushValueConverter.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />

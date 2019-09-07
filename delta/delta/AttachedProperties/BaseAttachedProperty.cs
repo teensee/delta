@@ -21,7 +21,7 @@ namespace delta
         /// <summary>
         /// Fired when the value changes, even when the value is the same
         /// </summary>
-        public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
+        public event Action<DependencyObject, object> ValueUpdated = (sender, e) => { };
 
         #endregion
 

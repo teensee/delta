@@ -27,7 +27,6 @@ namespace delta.Core
             ServiceIcon = ServiceIconEnum.Twitch;
             Username = "teensee";
             Message = "Это design-time текст. Тут вообще-то будет что-то интересное...наверно?";
-            IconRGB = "6441a4";
             IsSelected = false;
             SentByMe = true;
             MessageSentTime = DateTimeOffset.UtcNow;

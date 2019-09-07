@@ -1,19 +1,19 @@
 ﻿using delta.Core;
 using System;
 using System.Globalization;
+using System.Windows;
 
 namespace delta
 {
     /// <summary>
-    /// Converts the <see cref="ServiceIconEnum"/> to an icon
+    /// A converters that takes in a boolean if a message was sent by me, and returns
+    /// the correct background color
     /// </summary>
-    public class SentByMePathDataConverter : BaseValueConverter<SentByMePathDataConverter>
+    public class SentByMeMarginConverter : BaseValueConverter<SentByMeMarginConverter>
     {
-        private string leftArrow = "M 0,0 L 10,10 L 10,0";
-        private string rightArrow = "M 0 0 L 0 10 L 10 0";
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? rightArrow : leftArrow;
+            return (bool)value ?  "10 0 0 0": "0 0 10 0";
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
