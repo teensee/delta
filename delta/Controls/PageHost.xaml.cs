@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using delta.Core;
+using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -49,7 +51,14 @@ namespace delta
             //right after this call due to moving frames
             if (oldPageContent is BasePage oldPage)
             {
+                //Tell old page to animate out
                 oldPage.ShouldAnimateOut = true;
+
+                //Once it is done - remove it
+                Task.Delay((int)(oldPage.SlideSeconds * 1000)).ContinueWith((t)=> 
+                {
+                    Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null);
+                });
             }
             //Set the new page content
             newPageFrame.Content = e.NewValue;
@@ -62,6 +71,11 @@ namespace delta
         public PageHost()
         {
             InitializeComponent();
+
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                this.NewPage.Content = (BasePage) new ApplicationPageValueConverter().Convert(IoC.Get<ApplicationViewModel>().CurrentPage);
+            }
         }
 
         #endregion

@@ -8,12 +8,22 @@
                 xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
                 mc:Ignorable="d" 
                 d:DesignHeight="500" d:DesignWidth="500"
-                x:Name="Page"
-                Title="Chat">
+                x:Name="Page">
 
-    <Border Background="White">
+    <Grid>
 
-        <local:ChatMessageListControl/>
+        <Grid.RowDefinitions>
+            <!--Title Bar-->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Chat List-->
+            <RowDefinition Height="*"/>
+            
+            <!-- Message Send Text Button-->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <local:ChatMessageListControl Grid.Row="1"/>
 
-    </Border>
+    </Grid>
 </local:BasePage>

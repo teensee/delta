@@ -20,13 +20,13 @@ namespace delta
         /// <param name="element">The element to animate</param>
         /// <param name="seconds">Duration</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeInFromRight(this FrameworkElement element, float seconds =0.3f)
+        public static async Task SlideAndFadeInFromRight(this FrameworkElement element, float seconds =0.3f, int width = 0)
         {
             //Create the storyboard
             var storyboard = new Storyboard();
 
             // Add slide from right animation
-            storyboard.AddSlideFromRight(seconds, element.ActualWidth);
+            storyboard.AddSlideFromRight(seconds, width == 0 ? element.ActualWidth : width);
 
             // Add fade in animation
             storyboard.AddFadeIn(seconds);
@@ -47,13 +47,13 @@ namespace delta
         /// <param name="element">The element to animate</param>
         /// <param name="seconds">Duration</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeInFromLeft(this FrameworkElement element, float seconds=0.3f)
+        public static async Task SlideAndFadeInFromLeft(this FrameworkElement element, float seconds=0.3f, int width = 0)
         {
             //Create the storyboard
             var storyboard = new Storyboard();
 
             // Add slide from right animation
-            storyboard.AddSlideFromLeft(seconds, element.ActualWidth);
+            storyboard.AddSlideFromLeft(seconds, width == 0 ? element.ActualWidth : width);
 
             // Add fade in animation
             storyboard.AddFadeIn(seconds);
@@ -74,13 +74,13 @@ namespace delta
         /// <param name="element">The page to animate</param>
         /// <param name="seconds">Duration</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeOutToLeft(this FrameworkElement element, float seconds = 0.3f)
+        public static async Task SlideAndFadeOutToLeft(this FrameworkElement element, float seconds = 0.3f, int width = 0)
         {
             //Create the storyboard
             var storyboard = new Storyboard();
 
             // Add slide from right animation
-            storyboard.AddSlideToLeft(seconds, element.ActualWidth);
+            storyboard.AddSlideToLeft(seconds, width == 0 ? element.ActualWidth : width);
 
             // Add fade in animation
             storyboard.AddFadeOut(seconds);
@@ -101,13 +101,13 @@ namespace delta
         /// <param name="element">The page to animate</param>
         /// <param name="seconds">Duration</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeOutToRight(this FrameworkElement element, float seconds = 0.3f)
+        public static async Task SlideAndFadeOutToRight(this FrameworkElement element, float seconds = 0.3f, int width = 0)
         {
             //Create the storyboard
             var storyboard = new Storyboard();
 
             // Add slide from right animation
-            storyboard.AddSlideToRight(seconds, element.ActualWidth);
+            storyboard.AddSlideToRight(seconds, width == 0 ? element.ActualWidth : width);
 
             // Add fade in animation
             storyboard.AddFadeOut(seconds);

@@ -8,8 +8,7 @@
                 xmlns:core="clr-namespace:delta.Core;assembly=delta.Core"
                 mc:Ignorable="d" 
                 d:DesignHeight="500" d:DesignWidth="500"
-                x:Name="Page"
-                Title="LoginPage">
+                x:Name="Page">
 
     <Grid>
         <!-- Main Content scroll -->
@@ -54,6 +53,7 @@
                         <!-- Log In button -->
                         <Button Command="{Binding RegisterCommand}" 
                                 local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
+                                IsDefault="True"
                                 CommandParameter="{Binding ElementName=Page}"
                                 Margin="5" 
                                 Content="Register"/>

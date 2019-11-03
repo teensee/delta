@@ -14,12 +14,12 @@ namespace delta.Core
         /// <summary>
         /// The current page of the application
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Chat;
 
         /// <summary>
         /// True is the bottom menu should be show
         /// </summary>
-        public bool BottomMenuVisible { get; set; } = false;
+        public bool BottomMenuVisible { get; set; } = true;
 
         /// <summary>
         /// Naviagate to specify page

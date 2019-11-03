@@ -1,5 +1,6 @@
 ﻿using delta.Core;
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +11,7 @@ namespace delta
     /// <summary>
     /// Base page for all pages to gain base functionallity
     /// </summary>
-    public class BasePage : Page
+    public class BasePage : UserControl
     {
         #region Public Properties
 
@@ -23,8 +24,7 @@ namespace delta
         /// The animation the play when page is unloaded
         /// </summary>
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
-
-        /// <summary>
+/// <summary>
         /// The time any slides animation takes
         /// </summary>
         public float SlideSeconds { get; set; } = 0.8f;
@@ -44,6 +44,12 @@ namespace delta
         /// </summary>
         public BasePage()
         {
+            //Dont bother animating in design time...
+            if (DesignerProperties.GetIsInDesignMode(this))
+            {
+                return;
+            }
+
             //If we are anumating in, hide to begin with
             if (PageLoadAnimation != PageAnimation.None)
                 Visibility = Visibility.Collapsed;
@@ -92,7 +98,7 @@ namespace delta
                 case PageAnimation.SlideAndFadeInFromRight:
 
                     //Start the animation
-                    await this.SlideAndFadeInFromRight(SlideSeconds);
+                    await this.SlideAndFadeInFromRight(SlideSeconds, width: (int)Application.Current.MainWindow.Width);
                     break;
 
             }
