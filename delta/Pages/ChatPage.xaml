@@ -1,4 +1,4 @@
-﻿<local:BasePage x:TypeArguments="core:LoginViewModel" 
+﻿<local:BasePage x:TypeArguments="core:ChatMessageListViewModel" 
                 x:Class="delta.ChatPage"
                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -15,15 +15,67 @@
         <Grid.RowDefinitions>
             <!--Title Bar-->
             <RowDefinition Height="Auto"/>
-            
+
             <!-- Chat List-->
             <RowDefinition Height="*"/>
-            
+
             <!-- Message Send Text Button-->
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
+
         <local:ChatMessageListControl Grid.Row="1"/>
 
+        <!-- Message Send Text Button -->
+        <Border Grid.Row="2"
+                BorderThickness="0 1 0 0" 
+                BorderBrush="{StaticResource BackgroundLightBrush}">
+            <Grid MinHeight="30" 
+                  MaxHeight="160"
+                  Background="{StaticResource ForegroundLightBrush}">
+
+                <Grid.ColumnDefinitions>
+                    <!-- Attach button -->
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Text entry box -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Additiona buttons-->
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Attach button -->
+                <Button Style="{StaticResource IconButton}"
+                        Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                        Content="{StaticResource MaterialDesignCogIcon}"
+                        VerticalAlignment="Center"
+                        Foreground="{StaticResource BackgroundDarkBrush}"/>
+
+                <!-- Message box -->
+                <TextBox Grid.Column="1"
+                         Style="{StaticResource MessageBoxPlaceHolder}"
+                         Tag="Write a message..."
+                         AcceptsReturn="True"
+                         AcceptsTab="True"
+                         VerticalScrollBarVisibility="Auto"/>
+
+                <!-- Additiona buttons-->
+                <StackPanel Grid.Column="2" 
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center">
+
+                    <!-- Emoji button -->
+                    <Button Style="{StaticResource IconAttachButton}"
+                            Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                            Content="{StaticResource MaterialDesignAttachIcon}"
+                            Command="{Binding AttachmentButtonCommand}"/>
+
+                    <!-- Emoji button -->
+                    <Button Content="{StaticResource MaterialDesignSendIcon}"
+                            Style="{StaticResource SendIconButton}"
+                            Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+                            Foreground="{StaticResource WordBlueBrush}"/>
+
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </local:BasePage>

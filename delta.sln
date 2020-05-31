@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delta", "delta\delta.csproj", "{3A480128-89BE-4735-A072-24EC0696527A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delta.WPF", "delta\delta.WPF.csproj", "{3A480128-89BE-4735-A072-24EC0696527A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "delta.Core", "delta.Core\delta.Core.csproj", "{574B07C9-C9CD-480D-9835-E45D991E697B}"
 EndProject

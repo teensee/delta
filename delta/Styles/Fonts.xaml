@@ -39,6 +39,9 @@
     <system:String x:Key="MaterialDesignCogIcon">&#xf493;</system:String>
     <system:String x:Key="MaterialDesignLoadIcon">&#xf771;</system:String>
     <system:String x:Key="MaterialDesignMaximizeIcon">&#xf5af;</system:String>
+    <system:String x:Key="MaterialDesignEmojiIcon">&#xf784;</system:String>
+    <system:String x:Key="MaterialDesignAttachIcon">&#xf066;</system:String>
+    <system:String x:Key="MaterialDesignSendIcon">&#xf48a;</system:String>
 
     <!-- Material design service icons -->
     <system:String x:Key="MaterialDesignTwitchIcon">&#xf543;</system:String>
@@ -47,6 +50,7 @@
     <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>
     <system:String x:Key="FontAwesomeCogIcon">&#xf013;</system:String>
     <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>
+    <system:String x:Key="FontAwesomeEmojiIcon">&#xf015;</system:String>
     
     <!-- Font Size -->
     <system:Double x:Key="FontSizeSmaller">10</system:Double>

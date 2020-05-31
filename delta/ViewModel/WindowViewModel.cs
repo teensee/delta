@@ -41,7 +41,7 @@ namespace delta
         /// <summary>
         /// Minimum window height
         /// </summary>
-        public double WindowMinimumHeight { get; set; } = 390;
+        public double WindowMinimumHeight { get; set; } = 500;
 
         /// <summary>
         /// Maximum window width

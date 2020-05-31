@@ -67,8 +67,8 @@ namespace delta.Core
                 //Go to chat page
                 IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
 
-                //var email = Email;
-                //var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
+                var email = Email;
+                var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
             });
         }
 
