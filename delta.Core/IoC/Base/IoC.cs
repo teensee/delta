@@ -14,6 +14,11 @@ namespace delta.Core
         /// </summary>
         public static IKernel Kernel { get; private set; } = new StandardKernel();
 
+
+        /// <summary>
+        /// A shortcut to access the <see cref="IUIManager"/>
+        /// </summary>
+        public static IUIManager UI => Get<IUIManager>();
         #endregion
 
         #region Constructions
@@ -35,7 +40,7 @@ namespace delta.Core
         /// </summary>
         private static void BindViewModels()
         {
-            //BInd to a single instance of Application View Model
+            //Bind to a single instance of Application View Model
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
         }
 

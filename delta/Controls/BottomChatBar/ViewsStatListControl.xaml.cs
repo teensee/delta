@@ -5,9 +5,9 @@ namespace delta
     /// <summary>
     /// Interaction logic for ChatListControl.xaml
     /// </summary>
-    public partial class ChatListControl : UserControl
+    public partial class ViewsStatListControl : UserControl
     {
-        public ChatListControl()
+        public ViewsStatListControl()
         {
             InitializeComponent();
         }

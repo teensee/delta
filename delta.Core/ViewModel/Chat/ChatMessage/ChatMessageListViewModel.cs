@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace delta.Core
@@ -17,7 +18,18 @@ namespace delta.Core
         /// <summary>
         /// If true - show attachment menu 
         /// </summary>
-        public bool AttachmentMenuVisible { get; set; }
+        public bool AttachmentMenuVisible { get; set; } = false;
+
+        /// <summary>
+        /// True if any popup menu are visible
+        /// </summary>
+        public bool AnyPopupVisible => AttachmentMenuVisible;
+
+        /// <summary>
+        /// The view model for the attachment menu
+        /// </summary>
+        public ChatAttachmentPopupMenuViewModel AttachmentMenu { get; set; }
+
         #endregion
 
         #region Public Commands
@@ -26,6 +38,16 @@ namespace delta.Core
         /// The command for when the attachment button is clicked
         /// </summary>
         public ICommand AttachmentButtonCommand { get; set; }
+
+        /// <summary>
+        /// The command for when the area outside of popup is clicked
+        /// </summary>
+        public ICommand PopupClickAwayCommand { get; set; }
+
+        /// <summary>
+        /// The command for when the user clicks the send button
+        /// </summary>
+        public ICommand SendCommand { get; set; }
         #endregion
 
         #region Constructor
@@ -35,6 +57,12 @@ namespace delta.Core
         public ChatMessageListViewModel()
         {
             AttachmentButtonCommand = new RelayCommand(AttachmentButton);
+            PopupClickAwayCommand = new RelayCommand(PopupClickAway);
+            SendCommand = new RelayCommand(SendAction);
+
+
+            //make a default menu
+            AttachmentMenu = new ChatAttachmentPopupMenuViewModel();
         }
 
         #endregion
@@ -49,6 +77,29 @@ namespace delta.Core
             //toggle menu visible
             AttachmentMenuVisible ^= true;
         }
+
+        /// <summary>
+        /// When the popup clickaway area is ckicked hide any popups
+        /// </summary>
+        public void PopupClickAway()
+        {
+            //hide menu
+            AttachmentMenuVisible = false;
+        }
+
+        /// <summary>
+        /// When the user clicks the send button, send the message
+        /// </summary>
+        public void SendAction()
+        {
+            IoC.UI.ShowMessage(new MessageBoxDialogsViewModel
+            {
+                Title = "Send message",
+                Message = "This is simple test message  :3",
+                OkText = "Ok"
+            });
+        }
+
 
         #endregion
 

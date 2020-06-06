@@ -20,16 +20,10 @@
                     <ControlTemplate TargetType="{x:Type Window}">
 
                         <!-- Outer border with the dropshadow margin -->
-                        <Border Padding="{Binding OuterMarginSizeThickness}">
+                        <Border Padding="{Binding OuterMarginSizeThickness}"
+                                Background="{StaticResource ForegroundLightBrush}">
                             <!-- Main window outline -->
                             <Grid>
-                                <!-- Window border and dropshadow -->
-                                <Border CornerRadius="{Binding WindowCornerRadius}"
-                                        Background="{StaticResource ForegroundLightBrush}">
-                                    <Border.Effect>
-                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
-                                    </Border.Effect>
-                                </Border>
 
                                 <!-- Main window content -->
                                 <Grid>
@@ -148,7 +142,7 @@
                                  local:AnimateSlideInFromLeftProperty.Value="{Binding AppViewModel.BottomMenuVisible,
                                                                                       Source={x:Static local:ViewModelLocator.Instance}}">
             <StackPanel Orientation="Horizontal">
-                <local:ChatListControl />
+                <local:ViewsStatListControl />
             </StackPanel>
         </local:BottomMenuControl>
     </Grid>

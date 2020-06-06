@@ -19,12 +19,11 @@ namespace delta
         /// The animation the play when page is first loaded
         /// </summary>
         public PageAnimation PageLoadAnimation { get; set; } = PageAnimation.SlideAndFadeInFromRight;
-
         /// <summary>
         /// The animation the play when page is unloaded
         /// </summary>
         public PageAnimation PageUnloadAnimation { get; set; } = PageAnimation.SlideAndFadeOutToLeft;
-/// <summary>
+        /// <summary>
         /// The time any slides animation takes
         /// </summary>
         public float SlideSeconds { get; set; } = 0.8f;

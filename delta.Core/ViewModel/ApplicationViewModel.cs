@@ -29,7 +29,8 @@ namespace delta.Core
         {
             CurrentPage = page;
 
-            BottomMenuVisible = page == ApplicationPage.Chat;
+            //if we are in Chat page show Bottom menu
+            BottomMenuVisible = (page == ApplicationPage.Chat);
         }
     }
 }

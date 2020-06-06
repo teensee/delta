@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="delta.ChatListControl"
+﻿<UserControl x:Class="delta.ViewsStatListControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -26,7 +26,7 @@
                 <!-- Sets the ItemTemplate in ItemControl-->
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:ChatListItemControl />
+                        <local:ViewsStatItemControl />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

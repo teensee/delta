@@ -10,6 +10,10 @@
     
     <!-- Добавление иконок -->
     <FontFamily x:Key="FontAwesome">pack://application;,,,/Fonts/Icons/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+    <FontFamily x:Key="FontAwesome5Brands">pack://application;,,,/Fonts/Icons/fontawesome5brandsregular.otf#FontAwesome5Brands</FontFamily>
+    <FontFamily x:Key="FontAwesome5Regular">pack://application;,,,/Fonts/Icons/fontawesome5regular.otf#FontAwesome5Regular</FontFamily>
+    <FontFamily x:Key="FontAwesome5Solid">pack://application;,,,/Fonts/Icons/fontawesome5solid.otf#FontAwesome5Solid</FontFamily>
+    
     <FontFamily x:Key="MaterialDesign">pack://application;,,,/Fonts/Icons/materialdesignicons-webfont.ttf#Material Design Icons</FontFamily>
 
     <!-- Set base style -->
@@ -42,9 +46,12 @@
     <system:String x:Key="MaterialDesignEmojiIcon">&#xf784;</system:String>
     <system:String x:Key="MaterialDesignAttachIcon">&#xf066;</system:String>
     <system:String x:Key="MaterialDesignSendIcon">&#xf48a;</system:String>
+    <system:String x:Key="MaterialDesignFileIcon">&#xf214;</system:String>
+    <system:String x:Key="MaterialDesignImageIcon">&#xf21f;</system:String>
 
     <!-- Material design service icons -->
     <system:String x:Key="MaterialDesignTwitchIcon">&#xf543;</system:String>
+    <system:String x:Key="MaterialDesignYoutubeIcon">&#xf5c3;</system:String>
     
     <!-- Font Awesome Icons -->
     <system:String x:Key="FontAwesomeUserIcon">&#xf007;</system:String>

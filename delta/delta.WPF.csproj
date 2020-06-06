@@ -73,6 +73,9 @@
     <Compile Include="Controls\BubbleContent.xaml.cs">
       <DependentUpon>BubbleContent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Menu\VerticalMenuControl.xaml.cs">
+      <DependentUpon>VerticalMenuControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\PageAnimation.cs" />
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
@@ -83,14 +86,14 @@
     <Compile Include="AttachedProperties\FrameworkElementAnimationAttachedProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="AttachedProperties\Unused\PasswordBoxPropertiesOld.cs" />
-    <Compile Include="Controls\BottomMenuControl.xaml.cs">
+    <Compile Include="Controls\Menu\BottomMenuControl.xaml.cs">
       <DependentUpon>BottomMenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ChatMenu\ChatListControl.xaml.cs">
-      <DependentUpon>ChatListControl.xaml</DependentUpon>
+    <Compile Include="Controls\BottomChatBar\ViewsStatListControl.xaml.cs">
+      <DependentUpon>ViewsStatListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ChatMenu\ChatListItemControl.xaml.cs">
-      <DependentUpon>ChatListItemControl.xaml</DependentUpon>
+    <Compile Include="Controls\BottomChatBar\ViewsStatItemControl.xaml.cs">
+      <DependentUpon>ViewsStatItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ChatMessageItem\ChatMessageListControl.xaml.cs">
       <DependentUpon>ChatMessageListControl.xaml</DependentUpon>
@@ -101,6 +104,7 @@
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IoC\UIManager.cs" />
     <Compile Include="Pages\Base\BasePage.cs" />
     <Compile Include="Pages\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
@@ -113,11 +117,15 @@
     </Compile>
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\Base\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\MenuIconConverter.cs" />
+    <Compile Include="ValueConverters\MenuItemTypeVisibilityConverter.cs" />
+    <Compile Include="ValueConverters\PopupContentConverter.cs" />
     <Compile Include="ValueConverters\SentByMe\SentByMeMarginConverter.cs" />
     <Compile Include="ValueConverters\SentByMe\SentByMeBackgroundConverter.cs" />
     <Compile Include="ValueConverters\SentByMe\SentByMePathDataConverter.cs" />
     <Compile Include="ValueConverters\SentByMe\SentByMeGridColumnConverter.cs" />
     <Compile Include="ValueConverters\ServiceIcon\ServiceIconToBrushValueConverter.cs" />
+    <Compile Include="ValueConverters\HorizontalAlignmentConverter.cs" />
     <Compile Include="ValueConverters\TimeToDisplayTimeConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\IoCConverter.cs" />
@@ -126,7 +134,11 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="WindowResizer\WindowResizer.cs" />
-    <Page Include="Controls\BottomMenuControl.xaml">
+    <Page Include="Controls\Menu\VerticalMenuControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Menu\BottomMenuControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,11 +146,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ChatMenu\ChatListControl.xaml">
+    <Page Include="Controls\BottomChatBar\ViewsStatListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ChatMenu\ChatListItemControl.xaml">
+    <Page Include="Controls\BottomChatBar\ViewsStatItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,6 +256,9 @@
     <Content Include="Fonts\Icons\fontawesome-webfont.eot" />
     <Content Include="Fonts\Icons\fontawesome-webfont.woff" />
     <Content Include="Fonts\Icons\fontawesome-webfont.woff2" />
+    <Resource Include="Fonts\Icons\fontawesome5brandsregular.otf" />
+    <Resource Include="Fonts\Icons\fontawesome5regular.otf" />
+    <Resource Include="Fonts\Icons\fontawesome5solid.otf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

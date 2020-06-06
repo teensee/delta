@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 
 namespace delta.Core
 {
@@ -46,5 +47,6 @@ namespace delta.Core
         /// The time the message was sent
         /// </summary>
         public DateTimeOffset MessageSentTime { get; set; }
+
     }
 }

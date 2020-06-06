@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace delta.Controls
+namespace delta
 {
     /// <summary>
     /// Interaction logic for BubbleContent.xaml

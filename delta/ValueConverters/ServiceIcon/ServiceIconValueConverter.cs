@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.Windows;
 
 namespace delta
 {
@@ -16,10 +17,10 @@ namespace delta
             switch ((ServiceIconEnum)value)
             {
                 case ServiceIconEnum.Twitch:
-                    return "\uf543";
+                    return Application.Current.FindResource("MaterialDesignTwitchIcon");
 
                 case ServiceIconEnum.YouTube:
-                    return "\uf5c3";
+                    return Application.Current.FindResource("MaterialDesignYoutubeIcon");
 
                 default:
                     Debugger.Break();

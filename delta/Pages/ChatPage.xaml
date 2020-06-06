@@ -23,12 +23,40 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- Popup overlay -->
+        <Border Grid.RowSpan="2" 
+                Background="Transparent"
+                Panel.ZIndex="1"
+                Visibility="{Binding AttachmentMenuVisible, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}">
+
+            <Border.InputBindings>
+                <MouseBinding MouseAction="LeftClick" Command="{Binding PopupClickAwayCommand}"/>
+            </Border.InputBindings>
+        </Border>
+
+        <!-- Message control-->
         <local:ChatMessageListControl Grid.Row="1"/>
+
+        <!-- crutch :3 -->
+        <Border Grid.Row="1"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                DataContext="{Binding AttachmentMenu}"
+                Panel.ZIndex="2"
+                Margin="0 0 30 0"
+                >
+            <local:BubbleContent local:AnimateSlideInFromBottomProperty.Value="{Binding ViewModel.AttachmentMenuVisible, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ChatPage}}}"
+                                 />
+        </Border>
+        <!-- Attachment menu popup-->
+
 
         <!-- Message Send Text Button -->
         <Border Grid.Row="2"
+                Panel.ZIndex="3"
                 BorderThickness="0 1 0 0" 
                 BorderBrush="{StaticResource BackgroundLightBrush}">
+
             <Grid MinHeight="30" 
                   MaxHeight="160"
                   Background="{StaticResource ForegroundLightBrush}">
@@ -72,7 +100,8 @@
                     <Button Content="{StaticResource MaterialDesignSendIcon}"
                             Style="{StaticResource SendIconButton}"
                             Height="{Binding MinHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
-                            Foreground="{StaticResource WordBlueBrush}"/>
+                            Foreground="{StaticResource WordBlueBrush}"
+                            Command="{Binding SendCommand}"/>
 
                 </StackPanel>
             </Grid>

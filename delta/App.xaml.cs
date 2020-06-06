@@ -1,10 +1,5 @@
 ﻿using delta.Core;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace delta
@@ -23,11 +18,24 @@ namespace delta
             //Let the base application do what it needs
             base.OnStartup(e);
 
-            //Set up IoC
-            IoC.Setup();
+            //Setup the main Application
+            ApplicationSetup();
 
             Current.MainWindow = new MainWindow();
             Current.MainWindow.Show();
+        }
+
+
+        /// <summary>
+        /// Configures out application ready to use
+        /// </summary>
+        private void ApplicationSetup()
+        {
+            //Setup IoC
+            IoC.Setup();
+
+            //Bind a UI Manager
+            IoC.Kernel.Bind<IUIManager>().ToConstant(new UIManager());
         }
     }
 }
