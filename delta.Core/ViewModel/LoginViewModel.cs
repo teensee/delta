@@ -65,7 +65,7 @@ namespace delta.Core
                 await Task.Delay(1000);
 
                 //Go to chat page
-                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
+                IoC.ApplicationViewModel.GoToPage(ApplicationPage.Chat);
 
                 var email = Email;
                 var pswrd = (param as IHavePassword).SecretPassword.Unsecure();
@@ -79,7 +79,7 @@ namespace delta.Core
         private async Task Register()
         {
             // TODO: Go to register page?
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
+            IoC.ApplicationViewModel.GoToPage(ApplicationPage.Register);
 
             await Task.Delay(1);
         }

@@ -17,7 +17,7 @@ namespace delta
         /// <summary>
         /// The application view model from ioc
         /// </summary>
-        public static ApplicationViewModel AppViewModel => IoC.Get<ApplicationViewModel>();
+        public static ApplicationViewModel AppViewModel => IoC.ApplicationViewModel;
 
         #endregion
 

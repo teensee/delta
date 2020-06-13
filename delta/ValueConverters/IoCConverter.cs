@@ -16,7 +16,7 @@ namespace delta
             switch ((string)parameter)
             {
                 case nameof(ApplicationViewModel):
-                    return IoC.Get<ApplicationViewModel>();
+                    return IoC.ApplicationViewModel;
 
                 default:
                     Debugger.Break();

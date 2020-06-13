@@ -1,6 +1,5 @@
 ﻿using delta.Core;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace delta
 {
@@ -16,7 +15,7 @@ namespace delta
         /// <returns></returns>
         public Task ShowMessage(MessageBoxDialogsViewModel viewModel)
         {
-            return Task.Run(() => MessageBox.Show("Test"));
+            return new DialogMessageBox().ShowDialog(viewModel);
         }
     }
 }

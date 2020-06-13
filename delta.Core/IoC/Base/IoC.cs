@@ -19,6 +19,11 @@ namespace delta.Core
         /// A shortcut to access the <see cref="IUIManager"/>
         /// </summary>
         public static IUIManager UI => Get<IUIManager>();
+
+        /// <summary>
+        /// A shortcut to access the <see cref="ApplicationViewModel"/>
+        /// </summary>
+        public static ApplicationViewModel ApplicationViewModel => Get<ApplicationViewModel>();
         #endregion
 
         #region Constructions

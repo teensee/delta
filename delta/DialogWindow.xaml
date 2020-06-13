@@ -1,4 +1,4 @@
-﻿<Window x:Class="delta.MainWindow"
+﻿<Window x:Class="delta.DialogWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,18 +8,21 @@
         mc:Ignorable="d"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
         WindowStyle="None"
-        x:Name="AppWindow"
-        MinHeight="{Binding WindowMinimumHeight}" MinWidth="{Binding WindowMinimumWidth}"
-        Title="Hello,world!" Width="340" Height="390">
+        SizeToContent="WidthAndHeight"
+        MinHeight="{Binding WindowMinimumHeight}" 
+        MinWidth="{Binding WindowMinimumWidth}"
+        Title="Hello,world!">
 
     <Window.Resources>
-        <Style TargetType="{x:Type local:MainWindow}">
+        <Style TargetType="{x:Type local:DialogWindow}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Window}">
+
                         <!-- Outer border with the dropshadow margin -->
-                        <Border Margin="{Binding OuterMarginSizeThickness}">
+                        <Border Padding="{Binding OuterMarginSizeThickness}">
                             <!-- Main window outline -->
                             <Grid>
 
@@ -43,7 +46,6 @@
                                     <!-- Title bar -->
                                     <Border BorderBrush="{StaticResource BackgroundLightBrush}"
                                             BorderThickness="0 0 0 1">
-
                                         <Grid Grid.Row="0" Panel.ZIndex="1">
 
                                             <Grid.ColumnDefinitions>
@@ -69,25 +71,17 @@
                                                                Text="{StaticResource MaterialDesignDeltaIcon}"
                                                                FontFamily="{StaticResource MaterialDesign}"
                                                                VerticalAlignment="Center" />
-
-                                                    <!-- Text -->
-                                                    <TextBlock FontSize="13"
-                                                               Text="Chat"
-                                                               VerticalAlignment="Center" />
                                                 </StackPanel>
                                             </Border>
 
-                                            <!-- Are you here?) -->
-                                            <StackPanel Orientation="Horizontal"
-                                                    Grid.Column="1"
-                                                    VerticalAlignment="Center">
-
-                                                <TextBlock FontFamily="{StaticResource LatoRegular}"
-                                                       Text="Ты тут?"
-                                                       FontSize="13"
+                                            <!-- Title -->
+                                            <TextBlock FontFamily="{StaticResource LatoRegular}"
+                                                       Text="{Binding Title}"
                                                        VerticalAlignment="Center"
-                                                       Margin="10 0 5 0" />
-                                            </StackPanel>
+                                                       HorizontalAlignment="Center"
+                                                       Margin="5 0"
+                                                       FontSize="{StaticResource FontSizeRegular}"
+                                                       Grid.Column="1" />
 
                                             <!-- Window Control Buttons -->
                                             <StackPanel Orientation="Horizontal"
@@ -97,12 +91,14 @@
                                                 <!-- Minimize window button -->
                                                 <Button Style="{StaticResource WindowControlButton}"
                                                         Command="{Binding MinimizeCommand}"
-                                                        Content="{StaticResource MaterialDesignMinimizeIcon}" />
+                                                        Content="{StaticResource MaterialDesignMinimizeIcon}" 
+                                                        Visibility="Collapsed"/>
 
                                                 <!-- Maximize button -->
                                                 <Button Style="{StaticResource WindowControlButton}"
                                                         Content="{StaticResource MaterialDesignMaximizeIcon}"
-                                                        Command="{Binding MaximizeCommand}" />
+                                                        Command="{Binding MaximizeCommand}" 
+                                                        Visibility="Collapsed"/>
 
                                                 <!-- Close window button -->
                                                 <Button Style="{StaticResource WindowControlCloseButton}"
@@ -132,33 +128,9 @@
             GlassFrameThickness="0" />
     </WindowChrome.WindowChrome>
 
-    <Grid>
+    <Border Padding="10">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        
-        <!-- SettingsPage -->
-        <local:SettingsControl Grid.Row="0" 
-                               Panel.ZIndex="100" 
-                               Grid.RowSpan="2"
-                               local:AnimateSlideInFromBottomProperty.Value="{Binding AppViewModel.SettingsMenuVisible,
-                                                                                      Source={x:Static local:ViewModelLocator.Instance}}"/>
+        <ContentControl Content="{Binding Content}"/>
 
-        <local:PageHost DataContext="{Binding AppViewModel.CurrentPage,
-                                        Source={x:Static local:ViewModelLocator.Instance},
-                                        Converter={local:ApplicationPageValueConverter}}"
-                CurrentPage="{Binding}"/>
-       
-
-        <!-- Bottom menu control-->
-        <local:BottomMenuControl Grid.Row="1"
-                                 local:AnimateSlideInFromLeftProperty.Value="{Binding AppViewModel.BottomMenuVisible,
-                                                                                      Source={x:Static local:ViewModelLocator.Instance}}">
-            <StackPanel Orientation="Horizontal">
-                <local:ViewsStatListControl />
-            </StackPanel>
-        </local:BottomMenuControl>
-    </Grid>
+    </Border>
 </Window>

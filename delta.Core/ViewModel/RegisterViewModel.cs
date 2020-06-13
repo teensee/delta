@@ -76,7 +76,7 @@ namespace delta.Core
         private async Task Login()
         {
             // TODO: Go to register page?
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
+            IoC.ApplicationViewModel.GoToPage(ApplicationPage.Login);
 
             await Task.Delay(1);
         }

@@ -74,7 +74,7 @@ namespace delta
 
             if (DesignerProperties.GetIsInDesignMode(this))
             {
-                this.NewPage.Content = (BasePage) new ApplicationPageValueConverter().Convert(IoC.Get<ApplicationViewModel>().CurrentPage);
+                this.NewPage.Content = (BasePage) new ApplicationPageValueConverter().Convert(IoC.ApplicationViewModel.CurrentPage);
             }
         }
 

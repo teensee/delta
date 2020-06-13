@@ -92,12 +92,14 @@ namespace delta.Core
         /// </summary>
         public void SendAction()
         {
-            IoC.UI.ShowMessage(new MessageBoxDialogsViewModel
-            {
-                Title = "Send message",
-                Message = "This is simple test message  :3",
-                OkText = "Ok"
-            });
+
+            IoC.ApplicationViewModel.SettingsMenuVisible = true;
+            //IoC.UI.ShowMessage(new MessageBoxDialogsViewModel
+            //{
+            //    Title = "Send message",
+            //    Message = "This is simple test message  :3",
+            //    OkText = "Ok"
+            //});
         }
 
 

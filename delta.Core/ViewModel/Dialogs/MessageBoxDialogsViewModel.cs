@@ -3,13 +3,8 @@
     /// <summary>
     /// Details fot a message box dialog
     /// </summary>
-    public class MessageBoxDialogsViewModel : BaseViewModel
+    public class MessageBoxDialogsViewModel : BaseDialogViewModel
     {
-        /// <summary>
-        /// The title of the message box
-        /// </summary>
-        public string Title { get; set; }
-
         /// <summary>
         /// The message to display
         /// </summary>

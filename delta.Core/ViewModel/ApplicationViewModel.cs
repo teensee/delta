@@ -22,6 +22,11 @@ namespace delta.Core
         public bool BottomMenuVisible { get; set; } = true;
 
         /// <summary>
+        /// True is the settings menu should be show
+        /// </summary>
+        public bool SettingsMenuVisible { get; set; } = false;
+
+        /// <summary>
         /// Naviagate to specify page
         /// </summary>
         /// <param name="page">the page to go to</param>
