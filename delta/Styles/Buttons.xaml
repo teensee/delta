@@ -373,7 +373,7 @@
                             <BeginStoryboard>
                                 <Storyboard>
                                     <ColorAnimation To="{StaticResource ForegroundLight}" Duration="0:0:0.11" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
-                                    <ColorAnimation To="{StaticResource BackgroundDark}" Duration="0:0:0.11" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Foreground.Color"/>
+                                    <ColorAnimation To="{StaticResource WordBlue}" Duration="0:0:0.11" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Foreground.Color"/>
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>

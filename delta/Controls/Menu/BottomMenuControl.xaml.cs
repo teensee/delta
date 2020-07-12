@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using delta.Core.ViewModel;
+using System.Windows.Controls;
 
 namespace delta
 {
@@ -10,6 +11,8 @@ namespace delta
         public BottomMenuControl()
         {
             InitializeComponent();
+
+            DataContext = new BottomMenuViewModel();
         }
     }
 }

@@ -114,15 +114,6 @@ namespace delta
         /// </summary>
         public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
-        /// <summary>
-        /// True is the bottom menu should be show
-        /// </summary>
-        public bool SettingsMenuVisible 
-        {
-            get => IoC.ApplicationViewModel.SettingsMenuVisible;
-            set => IoC.ApplicationViewModel.SettingsMenuVisible = value;
-        }
-
         #endregion
 
         #region Public Commands

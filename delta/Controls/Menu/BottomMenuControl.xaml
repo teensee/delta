@@ -32,8 +32,11 @@
 
                     <!-- Main buttons -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal">
-                        <Button Style="{StaticResource BottomMenuButton}" Content="{StaticResource MaterialDesignCogIcon}"/>
-                        <Button Style="{StaticResource BottomMenuButton}" Content="{StaticResource MaterialDesignDeltaIcon}"/>
+                        <Button Style="{StaticResource BottomMenuButton}" 
+                                Content="{StaticResource MaterialDesignCogIcon}"
+                                Command="{Binding ShowSettingsCommand}"/>
+                        <Button Style="{StaticResource BottomMenuButton}" 
+                                Content="{StaticResource MaterialDesignDeltaIcon}"/>
                     </StackPanel>
 
                 </Grid>

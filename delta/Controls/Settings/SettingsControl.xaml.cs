@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using delta.Core;
+using System.Windows.Controls;
 
 namespace delta
 {
@@ -10,6 +11,8 @@ namespace delta
         public SettingsControl()
         {
             InitializeComponent();
+
+            DataContext = IoC.SettingsViewModel;
         }
     }
 }

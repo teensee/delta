@@ -24,6 +24,11 @@ namespace delta.Core
         /// A shortcut to access the <see cref="ApplicationViewModel"/>
         /// </summary>
         public static ApplicationViewModel ApplicationViewModel => Get<ApplicationViewModel>();
+
+        /// <summary>
+        /// A shortcut to access the <see cref="SettingsViewModel"/>
+        /// </summary>
+        public static SettingsViewModel SettingsViewModel => Get<SettingsViewModel>();
         #endregion
 
         #region Constructions
@@ -47,6 +52,9 @@ namespace delta.Core
         {
             //Bind to a single instance of Application View Model
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
+
+            //Bind to a single instance of SettingsViewModel
+            Kernel.Bind<SettingsViewModel>().ToConstant(new SettingsViewModel());
         }
 
         /// <summary>

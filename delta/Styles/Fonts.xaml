@@ -49,7 +49,7 @@
     <system:String x:Key="MaterialDesignFileIcon">&#xf214;</system:String>
     <system:String x:Key="MaterialDesignImageIcon">&#xf21f;</system:String>
     <system:String x:Key="MaterialDesignArrowLeftCircleOutlineIcon">&#xf050;</system:String>
-    <system:String x:Key="MaterialDesignArrowLeftDropCircleOutlineIcon">&#xf053;</system:String>
+    <system:String x:Key="MaterialDesignArrowLeftDropCircleOutlineIcon">&#xf04b;</system:String>
     <system:String x:Key="MaterialDesignArrowLeftBoldOutlineIcon">&#xf9bf;</system:String>
 
     <!-- Material design service icons -->

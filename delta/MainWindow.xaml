@@ -140,8 +140,7 @@
         </Grid.RowDefinitions>
         
         <!-- SettingsPage -->
-        <local:SettingsControl Grid.Row="0" 
-                               Panel.ZIndex="100" 
+        <local:SettingsControl Panel.ZIndex="2" 
                                Grid.RowSpan="2"
                                local:AnimateSlideInFromBottomProperty.Value="{Binding AppViewModel.SettingsMenuVisible,
                                                                                       Source={x:Static local:ViewModelLocator.Instance}}"/>
@@ -149,7 +148,7 @@
         <local:PageHost DataContext="{Binding AppViewModel.CurrentPage,
                                         Source={x:Static local:ViewModelLocator.Instance},
                                         Converter={local:ApplicationPageValueConverter}}"
-                CurrentPage="{Binding}"/>
+                        CurrentPage="{Binding}"/>
        
 
         <!-- Bottom menu control-->

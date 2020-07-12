@@ -126,6 +126,9 @@ namespace delta
         /// <returns></returns>
         public static async Task SlideAndFadeInFromBottom(this FrameworkElement element, float seconds = 0.3f, double height = 0, Thickness thickness = default)
         {
+            //Make page visible
+            element.Visibility = Visibility.Visible;
+
             //Create the storyboard
             var storyboard = new Storyboard();
 
@@ -137,9 +140,6 @@ namespace delta
 
             //Start animating
             storyboard.Begin(element);
-
-            //Make page visible
-            element.Visibility = Visibility.Visible;
 
             //Wait for it to finish
             await Task.Delay((int)(seconds * 1000));
@@ -167,11 +167,11 @@ namespace delta
             //Start animating
             storyboard.Begin(element);
 
-            //Make page visible
-            element.Visibility = Visibility.Visible;
-
             //Wait for it to finish
             await Task.Delay((int)(seconds * 1000));
+
+            //Make page unvisible
+            element.Visibility = Visibility.Collapsed;
         }
     }
 }

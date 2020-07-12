@@ -19,6 +19,11 @@ namespace delta
         /// </summary>
         public static ApplicationViewModel AppViewModel => IoC.ApplicationViewModel;
 
+        /// <summary>
+        /// The settings view model from ioc
+        /// </summary>
+        public static SettingsViewModel SettingsViewModel => IoC.SettingsViewModel;
+
         #endregion
 
     }
